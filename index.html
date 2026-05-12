@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>psy-cert.com.ua — інформаційна платформа про сертифікацію психологів в Україні</title>
+<meta name="description" content="Інформаційна платформа про сертифікацію психологів в Україні відповідно до Закону № 4223-IX. Реєстр, вимоги, етапи отримання сертифіката. Запуск — осінь 2026.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://psy-cert.com.ua/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="psy-cert.com.ua — сертифікація психологів в Україні">
+<meta property="og:description" content="Інформаційна платформа про сертифікацію психологів в Україні відповідно до Закону № 4223-IX. Запуск — осінь 2026.">
+<meta property="og:url" content="https://psy-cert.com.ua/">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #4a566b;
+    --ink-muted: #8693a8;
+    --line: #e3e7ee;
+    --accent: #1e3a8a;
+    --accent-hover: #1e40af;
+    --success-bg: #ecfdf5;
+    --success-ink: #065f46;
+    --error-bg: #fef2f2;
+    --error-ink: #991b1b;
+    --radius: 10px;
+    --maxw: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* Hero */
+  .hero {
+    padding: 72px 0 48px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(30, 58, 138, 0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 580px;
+  }
+
+  /* Sections */
+  section {
+    padding: 40px 0;
+  }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* Features list */
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .features li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: var(--ink);
+  }
+  .features li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 11px;
+  }
+  .features li span {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .features li strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+  /* Form */
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px;
+    margin-top: 8px;
+  }
+  .form-card h2 { margin-bottom: 8px; }
+  .form-card .form-lede {
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    font-size: 15px;
+  }
+  form { display: flex; flex-direction: column; gap: 12px; }
+  @media (min-width: 520px) {
+    form { flex-direction: row; }
+  }
+  input[type="email"] {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-appearance: none;
+  }
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+  input[type="email"]::placeholder { color: var(--ink-muted); }
+
+  button {
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    white-space: nowrap;
+  }
+  button:hover { background: var(--accent-hover); }
+  button:active { transform: translateY(1px); }
+  button:disabled {
+    background: var(--ink-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-note {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .form-status {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+  }
+  .form-status.show { display: block; }
+  .form-status.success {
+    background: var(--success-bg);
+    color: var(--success-ink);
+    border: 1px solid #a7f3d0;
+  }
+  .form-status.error {
+    background: var(--error-bg);
+    color: var(--error-ink);
+    border: 1px solid #fecaca;
+  }
+
+  /* Footer */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0 48px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer p { margin: 0; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+  @media (max-width: 520px) {
+    .hero { padding: 48px 0 32px; }
+    .form-card { padding: 24px 20px; }
+    section { padding: 32px 0; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="hero">
+      <span class="badge">Запуск — осінь 2026</span>
+      <h1>Сертифікація психологів в Україні: одне місце для всього необхідного</h1>
+      <p class="lede">Інформаційна платформа, яка простими словами пояснює, що змінює Закон № 4223-IX для практикуючих психологів і як отримати сертифікат за новими правилами.</p>
+    </div>
+
+    <section aria-labelledby="about-h">
+      <h2 id="about-h">Про що йдеться</h2>
+      <p>Закон України № 4223-IX «Про психологічну допомогу» вперше встановлює обовʼязкову сертифікацію психологів і психотерапевтів. Норми набирають чинності поетапно, і для частини спеціалістів зʼявляються вимоги, яких раніше не існувало: підтвердження освіти, кваліфікаційний іспит, внесення до реєстру.</p>
+      <p>Ми збираємо актуальну інформацію в одному місці — без юридичної мови, з посиланнями на першоджерела, з покроковими інструкціями для тих, хто проходить процедуру вперше.</p>
+    </section>
+
+    <section aria-labelledby="features-h">
+      <h2 id="features-h">Що буде на платформі</h2>
+      <ul class="features">
+        <li><div><strong>Розʼяснення вимог закону</strong><span>Що саме змінюється для практикуючих психологів і коли</span></div></li>
+        <li><div><strong>Покрокові інструкції</strong><span>Як підготувати документи, скласти іспит, потрапити до реєстру</span></div></li>
+        <li><div><strong>Календар дедлайнів</strong><span>Ключові дати перехідного періоду та звітних строків</span></div></li>
+        <li><div><strong>Відповіді на типові запитання</strong><span>База FAQ за категоріями спеціалістів і ситуацій</span></div></li>
+        <li><div><strong>Огляд офіційних джерел</strong><span>Посилання на нормативні акти, реєстри й уповноважені органи</span></div></li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="signup-h">
+      <div class="form-card">
+        <h2 id="signup-h">Дізнатися першими про запуск</h2>
+        <p class="form-lede">Залиште email — надішлемо одне повідомлення, коли платформа стане доступною. Жодного спаму, жодних розсилок до того.</p>
+
+        <form id="signup-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <input type="hidden" name="access_key" value="REPLACE_WITH_YOUR_WEB3FORMS_ACCESS_KEY">
+          <input type="hidden" name="subject" value="Нова підписка — psy-cert.com.ua">
+          <input type="hidden" name="from_name" value="psy-cert.com.ua">
+          <input type="hidden" name="redirect" value="false">
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="ваш@email.com"
+            required
+            autocomplete="email"
+            aria-label="Email">
+          <button type="submit" id="submit-btn">Підписатися</button>
+        </form>
+
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+        <p class="form-note">Натискаючи «Підписатися», ви погоджуєтесь отримати одне повідомлення про запуск платформи.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації. Контакт: <a href="mailto:artem.khymenko@gmail.com">artem.khymenko@gmail.com</a></p>
+  </div>
+</footer>
+
+<script>
+  const form = document.getElementById('signup-form');
+  const status = document.getElementById('form-status');
+  const btn = document.getElementById('submit-btn');
+  const emailInput = document.getElementById('email');
+
+  function showStatus(msg, type) {
+    status.textContent = msg;
+    status.className = 'form-status show ' + type;
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    status.className = 'form-status';
+    status.textContent = '';
+
+    const email = emailInput.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showStatus('Будь ласка, введіть коректний email.', 'error');
+      return;
+    }
+
+    btn.disabled = true;
+    const originalText = btn.textContent;
+    btn.textContent = 'Надсилаємо…';
+
+    try {
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        form.style.display = 'none';
+        showStatus('Дякуємо! Ми зберегли вашу адресу. Запуск платформи — орієнтовно восени 2026. Одне повідомлення з посиланням прийде на цей email, коли все буде готове.', 'success');
+      } else {
+        showStatus('Не вдалося надіслати. Спробуйте ще раз або напишіть на artem.khymenko@gmail.com', 'error');
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    } catch (err) {
+      showStatus('Помилка зʼєднання. Перевірте інтернет і спробуйте ще раз.', 'error');
+      btn.disabled = false;
+      btn.textContent = originalText;
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://psy-cert.com.ua/sitemap.xml
