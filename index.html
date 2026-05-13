@@ -19,6 +19,66 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "psy-cert.com.ua",
+  "url": "https://psy-cert.com.ua/",
+  "inLanguage": "uk-UA",
+  "description": "Інформаційна платформа про сертифікацію психологів в Україні відповідно до Закону № 4223-IX"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Чи всі психологи в Україні мають отримати сертифікат за Законом № 4223-IX?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Закон поширюється на надавачів послуг у сфері психічного здоров'я — зокрема психологів і психотерапевтів. До 7 лютого 2031 року сертифікація залишається добровільною; деталі обов'язкового періоду готуємо для запуску платформи."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Коли почала діяти сертифікація?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Закон № 4223-IX набрав чинності 7 лютого 2026 року. Перехідний період, протягом якого сертифікація добровільна, триває до 7 лютого 2031 року."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чим відрізняється сертифікація через Національну комісію та EuroPsy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Національна комісія з питань психічного здоров'я — державний орган, передбачений Законом № 4223-IX. EuroPsy — європейська система сертифікації Європейської федерації психологічних асоціацій (EFPA), яку в Україні впроваджує Національна психологічна асоціація (НПА). Це різні шляхи підтвердження кваліфікації з різними вимогами та сферою визнання."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи зберігаються наявні дипломи й кваліфікації?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так, диплом магістра психології залишається базовою вимогою. Закон вводить додаткові механізми підтвердження компетенцій — освіту, безперервний професійний розвиток, етичні стандарти."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Чи можна практикувати без сертифіката зараз?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Так, до 7 лютого 2031 року сертифікація добровільна. Однак за Законом № 4223-IX сертифікація стосуватиметься окремих психологічних і психіатричних методів — і лише ті методи, за якими фахівець отримає сертифікацію, він зможе використовувати у практиці."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
   :root {
     --bg: #f5f6f8;
@@ -181,6 +241,50 @@
     margin: 0 0 24px;
     font-size: 15px;
   }
+
+  /* FAQ */
+  .faq { display: grid; gap: 10px; }
+  .faq details {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .faq summary {
+    padding: 18px 20px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    line-height: 1.45;
+  }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--accent);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+  .faq details[open] summary::after {
+    content: '−';
+  }
+  .faq details[open] summary {
+    border-bottom: 1px solid var(--line);
+  }
+  .faq .faq-answer {
+    padding: 16px 20px 20px;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.6;
+  }
   form { display: flex; flex-direction: column; gap: 12px; }
   @media (min-width: 520px) {
     form { flex-direction: row; }
@@ -315,6 +419,32 @@
       </ul>
     </section>
 
+    <section aria-labelledby="faq-h">
+      <h2 id="faq-h">Поширені запитання</h2>
+      <div class="faq">
+        <details>
+          <summary>Чи всі психологи в Україні мають отримати сертифікат за Законом № 4223-IX?</summary>
+          <div class="faq-answer">Закон поширюється на надавачів послуг у сфері психічного здоровʼя — зокрема психологів і психотерапевтів. До 7 лютого 2031 року сертифікація залишається добровільною; деталі обовʼязкового періоду готуємо для запуску платформи.</div>
+        </details>
+        <details>
+          <summary>Коли почала діяти сертифікація?</summary>
+          <div class="faq-answer">Закон № 4223-IX набрав чинності 7 лютого 2026 року. Перехідний період, протягом якого сертифікація добровільна, триває до 7 лютого 2031 року.</div>
+        </details>
+        <details>
+          <summary>Чим відрізняється сертифікація через Національну комісію та EuroPsy?</summary>
+          <div class="faq-answer">Національна комісія з питань психічного здоровʼя — державний орган, передбачений Законом № 4223-IX. EuroPsy — європейська система сертифікації Європейської федерації психологічних асоціацій (EFPA), яку в Україні впроваджує Національна психологічна асоціація (НПА). Це різні шляхи підтвердження кваліфікації з різними вимогами та сферою визнання. Деталізоване порівняння публікуємо при запуску.</div>
+        </details>
+        <details>
+          <summary>Чи зберігаються наявні дипломи й кваліфікації?</summary>
+          <div class="faq-answer">Так, диплом магістра психології залишається базовою вимогою. Закон вводить додаткові механізми підтвердження компетенцій — освіту, безперервний професійний розвиток, етичні стандарти. Конкретні правила перехідного періоду уточнюємо.</div>
+        </details>
+        <details>
+          <summary>Чи можна практикувати без сертифіката зараз?</summary>
+          <div class="faq-answer">Так, до 7 лютого 2031 року сертифікація добровільна. Однак за Законом № 4223-IX сертифікація стосуватиметься окремих психологічних і психіатричних методів — і лише ті методи, за якими фахівець отримає сертифікацію, він зможе використовувати у практиці. Деталі коментуємо при запуску платформи.</div>
+        </details>
+      </div>
+    </section>
+
     <section aria-labelledby="signup-h">
       <div class="form-card">
         <h2 id="signup-h">Дізнатися першими про запуск</h2>
@@ -349,7 +479,7 @@
 
 <footer>
   <div class="wrap">
-    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</a></p>
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</p>
   </div>
 </footer>
 
