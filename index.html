@@ -110,6 +110,7 @@
     background: var(--bg);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
   }
 
   .wrap {
@@ -165,7 +166,7 @@
 
   /* Hero */
   .hero {
-    padding: 72px 0 48px;
+    padding: 56px 0 24px;
   }
   .badge {
     display: inline-block;
@@ -193,6 +194,45 @@
     margin: 0;
     max-width: 580px;
   }
+
+  /* Hero form */
+  .hero-form {
+    display: flex;
+    gap: 8px;
+    margin-top: 28px;
+    max-width: 440px;
+    flex-wrap: wrap;
+  }
+  .hero-form input[type="email"] {
+    flex: 1;
+    min-width: 180px;
+    padding: 11px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
+    color: var(--ink);
+    transition: border-color 0.15s;
+    -webkit-appearance: none;
+  }
+  .hero-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .hero-form input[type="email"]::placeholder { color: var(--ink-muted); }
+  .hero-form button {
+    padding: 11px 18px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .hero-status {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--success-ink);
+    min-height: 18px;
+  }
+  .hero-status.error { color: var(--error-ink); }
 
   /* Sections */
   section {
@@ -447,9 +487,15 @@
   }
 
   @media (max-width: 520px) {
-    .hero { padding: 48px 0 32px; }
+    .hero { padding: 40px 0 24px; }
     .form-card { padding: 24px 20px; }
-    section { padding: 32px 0; }
+    section { padding: 28px 0; }
+    .hero-form { flex-direction: column; max-width: 100%; }
+    .hero-form input[type="email"],
+    .hero-form button { width: 100%; }
+    .lede { font-size: 16px; }
+    .psychologist-cta { flex-direction: column; }
+    .cta-btn { width: 100%; text-align: center; }
   }
 
   .psychologist-cta {
@@ -521,6 +567,11 @@
       <span class="badge">Запуск — осінь 2026</span>
       <h1>Сертифікація психологів в Україні: одне місце для всього необхідного</h1>
       <p class="lede">Інформаційна платформа, яка простими словами пояснює, що змінює Закон № 4223-IX для практикуючих психологів і як отримати сертифікат за новими правилами.</p>
+      <form id="hero-form" class="hero-form" novalidate>
+        <input type="email" id="hero-email" placeholder="ваш@email.com" autocomplete="email" aria-label="Email для сповіщення про запуск">
+        <button type="submit">Дізнатися першими</button>
+      </form>
+      <div id="hero-status" class="hero-status" role="status" aria-live="polite"></div>
     </div>
 
     <section aria-labelledby="about-h">
@@ -751,6 +802,42 @@
       showStatus('Помилка зʼєднання. Перевірте інтернет і спробуйте ще раз.', 'error');
       btn.disabled = false;
       btn.textContent = originalText;
+    }
+  });
+
+  // Hero form
+  const heroForm = document.getElementById('hero-form');
+  const heroStatus = document.getElementById('hero-status');
+  heroForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('hero-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      heroStatus.textContent = 'Введіть коректний email.';
+      heroStatus.className = 'hero-status error';
+      return;
+    }
+    const heroBtn = heroForm.querySelector('button');
+    heroBtn.disabled = true;
+    heroBtn.textContent = 'Надсилаємо…';
+    try {
+      const r = await fetch('/api/subscribe', {
+        method: 'POST',
+        body: JSON.stringify({ email, source: 'hero', botcheck: '' }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+      });
+      const d = await r.json();
+      if (r.ok && d.success) {
+        heroForm.style.display = 'none';
+        heroStatus.textContent = 'Дякуємо! Повідомимо про запуск.';
+        heroStatus.className = 'hero-status';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      heroStatus.textContent = 'Помилка. Спробуйте ще раз.';
+      heroStatus.className = 'hero-status error';
+      heroBtn.disabled = false;
+      heroBtn.textContent = 'Дізнатися першими';
     }
   });
 </script>
