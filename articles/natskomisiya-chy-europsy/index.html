@@ -32,7 +32,22 @@
     "url": "https://psy-cert.com.ua/"
   },
   "inLanguage": "uk-UA",
-  "description": "Порівняння двох шляхів сертифікації після Закону № 4223-IX: Національна комісія з питань психічного здоров'я та EuroPsy через НПА. Тільки перевірені факти."
+  "description": "Порівняння двох шляхів сертифікації після Закону № 4223-IX: Національна комісія з питань психічного здоров'я та EuroPsy через НПА. Тільки перевірені факти.",
+  "url": "https://psy-cert.com.ua/articles/natskomisiya-chy-europsy/",
+  "author": {"@type": "Organization", "name": "psy-cert.com.ua", "url": "https://psy-cert.com.ua/"},
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://psy-cert.com.ua/articles/natskomisiya-chy-europsy/"}
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Головна", "item": "https://psy-cert.com.ua/"},
+    {"@type": "ListItem", "position": 2, "name": "Матеріали", "item": "https://psy-cert.com.ua/articles/"},
+    {"@type": "ListItem", "position": 3, "name": "Нацкомісія чи EuroPsy: два шляхи сертифікації", "item": "https://psy-cert.com.ua/articles/natskomisiya-chy-europsy/"}
+  ]
 }
 </script>
 
@@ -233,6 +248,31 @@
   }
   .breadcrumbs .bc-current {
     color: var(--ink-soft);
+  }
+
+  /* Пряма відповідь */
+  .answer-box {
+    background: rgba(30, 58, 138, 0.05);
+    border: 1px solid rgba(30, 58, 138, 0.15);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin: 0 0 28px;
+  }
+  .answer-box .answer-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 8px;
+    display: block;
+  }
+  .answer-box p {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1.5;
   }
 
   /* Герой статті */
@@ -548,7 +588,13 @@
         <!-- Тіло статті -->
         <article class="article-body" aria-label="Текст статті">
 
-          <h2>Вступ</h2>
+          <!-- Пряма відповідь одразу -->
+          <div class="answer-box" role="note" aria-label="Пряма відповідь">
+            <span class="answer-label">Коротка відповідь</span>
+            <p>Обидва шляхи є законними і не виключають один одного. Нацкомісія — державна сертифікація, що визнається в Україні для роботи в держустановах. EuroPsy через НПА — міжнародне визнання у 36 країнах Європи за стандартом EFPA. Вибір залежить від цілей фахівця.</p>
+          </div>
+
+          <h2>Два шляхи за Законом № 4223-IX</h2>
 
           <p>Закон № 4223-IX, який набрав чинності <strong>7 лютого 2026 року</strong>, вперше в Україні закріпив два окремі шляхи підтвердження кваліфікації для психологів: через державну Національну комісію з питань психічного здоров'я та через акредитовані саморегулівні організації — зокрема, НПА з системою <strong>EuroPsy</strong>. Обидва шляхи передбачені законом і є законними. Вибір між ними залежить від цілей фахівця.</p>
 
@@ -808,7 +854,7 @@
           btn.textContent = originalText;
         }
       } catch (err) {
-        showStatus(‘Помилка з’єднання. Перевірте інтернет і спробуйте ще раз.’, ‘error’);
+        showStatus("Помилка з’єднання. Перевірте інтернет і спробуйте ще раз.", ‘error’);
         btn.disabled = false;
         btn.textContent = originalText;
       }
