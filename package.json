@@ -1,0 +1,24 @@
+{
+  "name": "psy-cert",
+  "version": "1.0.0",
+  "description": "Заглушка для майбутньої інформаційної платформи про сертифікацію психологів в Україні (Закон № 4223-IX). Запуск — осінь 2026.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArtemKhymenko/psy-cert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ArtemKhymenko/psy-cert/issues"
+  },
+  "homepage": "https://github.com/ArtemKhymenko/psy-cert#readme",
+  "devDependencies": {
+    "wrangler": "^4.107.0"
+  }
+}

@@ -1,14 +1,27 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "psy-cert",
-  "compatibility_date": "2026-05-12",
-  "observability": {
-    "enabled": true
-  },
-  "assets": {
-    "directory": "."
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
-  ]
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "psy-cert",
+	"main": "src/worker.js",
+	"compatibility_date": "2026-05-12",
+	"observability": {
+		"enabled": true
+	},
+	"assets": {
+		"directory": "."
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "psy-cert-subscribers",
+			"database_id": "002e0e34-35a7-4f71-ab1d-0235380a70dd"
+		},
+		{
+			"binding": "psy_cert_subscribers",
+			"database_name": "psy-cert-subscribers",
+			"database_id": "002e0e34-35a7-4f71-ab1d-0235380a70dd"
+		}
+	]
 }

@@ -1,0 +1,9 @@
+node_modules/
+.git/
+src/
+schema.sql
+wrangler.jsonc
+package.json
+package-lock.json
+README.md
+_template-article.html

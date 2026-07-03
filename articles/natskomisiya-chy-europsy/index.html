@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Нацкомісія чи EuroPsy: два шляхи сертифікації для психологів — psy-cert.com.ua</title>
+<meta name="description" content="Порівняння двох шляхів сертифікації після Закону № 4223-IX: Національна комісія з питань психічного здоров'я та EuroPsy через НПА. Факти без рекламних рекомендацій.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://psy-cert.com.ua/articles/natskomisiya-chy-europsy/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Нацкомісія чи EuroPsy: два шляхи сертифікації для психологів">
+<meta property="og:description" content="Порівняння двох шляхів сертифікації після Закону № 4223-IX: державна Нацкомісія та міжнародна EuroPsy через НПА. Тільки перевірені факти.">
+<meta property="og:url" content="https://psy-cert.com.ua/articles/natskomisiya-chy-europsy/">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Нацкомісія чи EuroPsy: два шляхи сертифікації для психологів",
+  "datePublished": "2026-07-03",
+  "dateModified": "2026-07-03",
+  "publisher": {
+    "@type": "Organization",
+    "name": "psy-cert.com.ua",
+    "url": "https://psy-cert.com.ua/"
+  },
+  "inLanguage": "uk-UA",
+  "description": "Порівняння двох шляхів сертифікації після Закону № 4223-IX: Національна комісія з питань психічного здоров'я та EuroPsy через НПА. Тільки перевірені факти."
+}
+</script>
+
+<style>
+  /* ─── Design tokens (ідентично index.html) ─── */
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #4a566b;
+    --ink-muted: #8693a8;
+    --line: #e3e7ee;
+    --accent: #1e3a8a;
+    --accent-hover: #1e40af;
+    --success-bg: #ecfdf5;
+    --success-ink: #065f46;
+    --error-bg: #fef2f2;
+    --error-ink: #991b1b;
+    --radius: 10px;
+    --maxw: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── Загальні утиліти ─── */
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(30, 58, 138, 0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+    letter-spacing: 0.01em;
+  }
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── Header ─── */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* ─── Form base ─── */
+  input[type="email"] {
+    flex: 1;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-appearance: none;
+  }
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+  input[type="email"]::placeholder { color: var(--ink-muted); }
+  button {
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    white-space: nowrap;
+  }
+  button:hover { background: var(--accent-hover); }
+  button:active { transform: translateY(1px); }
+  button:disabled {
+    background: var(--ink-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
+  .form-note {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+  .form-status {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+  }
+  .form-status.show { display: block; }
+  .form-status.success {
+    background: var(--success-bg);
+    color: var(--success-ink);
+    border: 1px solid #a7f3d0;
+  }
+  .form-status.error {
+    background: var(--error-bg);
+    color: var(--error-ink);
+    border: 1px solid #fecaca;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0 48px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer p { margin: 0; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ════════════════════════════════════════
+     КЛАСИ ДЛЯ СТАТЕЙ
+  ════════════════════════════════════════ */
+
+  .article-wrap {
+    max-width: 1040px;
+  }
+
+  .article-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding-top: 8px;
+  }
+  @media (min-width: 860px) {
+    .article-grid {
+      grid-template-columns: 1fr 280px;
+      align-items: start;
+    }
+  }
+
+  /* Хлібні крихти */
+  .breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--ink-muted);
+    padding: 20px 0 0;
+    margin-bottom: 0;
+  }
+  .breadcrumbs a {
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .breadcrumbs a:hover { color: var(--accent); }
+  .breadcrumbs .bc-sep {
+    color: var(--line);
+    font-size: 15px;
+    user-select: none;
+  }
+  .breadcrumbs .bc-current {
+    color: var(--ink-soft);
+  }
+
+  /* Герой статті */
+  .article-hero {
+    padding: 28px 0 24px;
+  }
+  .article-hero .badge {
+    margin-bottom: 20px;
+  }
+  .article-hero h1 {
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.22;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 14px;
+    color: var(--ink);
+  }
+
+  /* Мета-рядок статті */
+  .article-meta {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0;
+  }
+  .article-meta .meta-dot {
+    margin: 0 6px;
+    opacity: 0.5;
+  }
+
+  /* Тіло статті */
+  .article-body {
+    max-width: 680px;
+    color: var(--ink-soft);
+  }
+  .article-body h2 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin: 40px 0 14px;
+    line-height: 1.25;
+  }
+  .article-body h2:first-child { margin-top: 0; }
+  .article-body h3 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 28px 0 10px;
+    line-height: 1.35;
+  }
+  .article-body p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0 0 18px;
+    color: var(--ink-soft);
+  }
+  .article-body ul,
+  .article-body ol {
+    margin: 0 0 18px;
+    padding-left: 22px;
+    color: var(--ink-soft);
+  }
+  .article-body li {
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+  .article-body li:last-child { margin-bottom: 0; }
+  .article-body a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: rgba(30, 58, 138, 0.35);
+    transition: text-decoration-color 0.15s;
+  }
+  .article-body a:hover {
+    text-decoration-color: var(--accent);
+  }
+  .article-body blockquote {
+    margin: 24px 0;
+    padding: 16px 20px;
+    border-left: 3px solid var(--accent);
+    background: rgba(30, 58, 138, 0.04);
+    border-radius: 0 var(--radius) var(--radius) 0;
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+  .article-body blockquote p {
+    margin: 0;
+    font-size: 15px;
+  }
+  .article-body hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 36px 0;
+  }
+
+  /* Таблиця порівняння */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    margin: 24px 0 28px;
+    line-height: 1.55;
+  }
+  .compare-table th {
+    text-align: left;
+    padding: 12px 14px;
+    background: var(--bg);
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    border-bottom: 2px solid var(--line);
+    letter-spacing: 0.01em;
+  }
+  .compare-table th:first-child {
+    width: 28%;
+  }
+  .compare-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink-soft);
+    vertical-align: top;
+  }
+  .compare-table tr:last-child td {
+    border-bottom: none;
+  }
+  .compare-table .row-label {
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 14px;
+  }
+  .compare-table .tag-state {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(30, 58, 138, 0.09);
+    color: var(--accent);
+  }
+  .compare-table .tag-intl {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(5, 150, 105, 0.09);
+    color: #065f46;
+  }
+  .compare-table .unknown {
+    color: var(--ink-muted);
+    font-style: italic;
+    font-size: 14px;
+  }
+  @media (max-width: 600px) {
+    .compare-table { font-size: 14px; }
+    .compare-table th, .compare-table td { padding: 10px 10px; }
+  }
+
+  /* Ключові факти (сайдбар) */
+  .key-facts {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  @media (min-width: 860px) {
+    .key-facts {
+      position: sticky;
+      top: 24px;
+    }
+  }
+  .key-facts h3 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+  }
+  .key-facts ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .key-facts li {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+  }
+  .key-facts li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 8px;
+  }
+  .key-facts li strong {
+    display: block;
+    font-weight: 600;
+    color: var(--ink);
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+  .key-facts-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 16px 0;
+  }
+  .key-facts-law {
+    font-size: 12px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .key-facts-law a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* Форма підписки в статті */
+  .article-signup {
+    margin-top: 48px;
+    padding: 28px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    max-width: 680px;
+  }
+  .article-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  @media (min-width: 520px) {
+    .article-signup-form {
+      flex-direction: row;
+    }
+  }
+  .article-signup-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 600px) {
+    .article-hero { padding: 20px 0 16px; }
+    .article-signup { padding: 20px 16px; }
+    .key-facts { padding: 20px 16px; }
+    .article-body h2 { font-size: 20px; margin-top: 32px; }
+  }
+
+  .related-articles { padding: 32px 0 0; }
+  .related-articles h3 { font-size: 16px; font-weight: 600; margin: 0 0 14px; color: var(--ink); }
+  .related-grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+  .related-card { display: block; text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px; transition: border-color 0.15s; }
+  .related-card:hover { border-color: var(--accent); }
+  .related-badge { display: block; font-size: 12px; color: var(--accent); font-weight: 500; margin-bottom: 6px; }
+  .related-title { display: block; font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+  </div>
+</header>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main>
+  <div class="wrap article-wrap">
+
+    <!-- Хлібні крихти -->
+    <nav class="breadcrumbs" aria-label="Навігація сторінками">
+      <a href="/">Головна</a>
+      <span class="bc-sep" aria-hidden="true">›</span>
+      <a href="/articles/">Статті</a>
+      <span class="bc-sep" aria-hidden="true">›</span>
+      <span class="bc-current">Нацкомісія чи EuroPsy: два шляхи сертифікації для психологів</span>
+    </nav>
+
+    <div class="article-grid">
+
+      <!-- ═══ Ліва колонка: герой + контент + форма ═══ -->
+      <div>
+
+        <!-- Герой статті -->
+        <div class="article-hero">
+          <span class="badge">Порівняння</span>
+          <h1>Нацкомісія чи EuroPsy: два шляхи сертифікації для психологів</h1>
+          <p class="article-meta">
+            Опубліковано: 3 липня 2026
+            <span class="meta-dot">·</span>
+            6 хвилин читання
+          </p>
+        </div>
+
+        <!-- Тіло статті -->
+        <article class="article-body" aria-label="Текст статті">
+
+          <h2>Вступ</h2>
+
+          <p>Закон № 4223-IX, який набрав чинності <strong>7 лютого 2026 року</strong>, вперше в Україні закріпив два окремі шляхи підтвердження кваліфікації для психологів: через державну Національну комісію з питань психічного здоров'я та через акредитовані саморегулівні організації — зокрема, НПА з системою <strong>EuroPsy</strong>. Обидва шляхи передбачені законом і є законними. Вибір між ними залежить від цілей фахівця.</p>
+
+          <p>У цій статті — тільки перевірені факти. Все, що ще офіційно не визначено, позначено явно.</p>
+
+          <h2>Таблиця порівняння</h2>
+
+          <table class="compare-table" aria-label="Порівняння Нацкомісії та EuroPsy">
+            <thead>
+              <tr>
+                <th>Критерій</th>
+                <th><span class="tag-state">Нацкомісія</span></th>
+                <th><span class="tag-intl">EuroPsy / НПА</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="row-label">Орган</td>
+                <td>Національна комісія з питань психічного здоров'я — державний орган, передбачений Законом № 4223-IX</td>
+                <td>Національний комітет EuroPsy при НПА, уповноважений Європейською федерацією психологічних асоціацій (EFPA)</td>
+              </tr>
+              <tr>
+                <td class="row-label">Правова основа</td>
+                <td>Закон України № 4223-IX</td>
+                <td>Стандарти EFPA; НПА — член EFPA з 2017 року</td>
+              </tr>
+              <tr>
+                <td class="row-label">Сфера визнання</td>
+                <td>Україна</td>
+                <td>36 країн — членів EFPA</td>
+              </tr>
+              <tr>
+                <td class="row-label">Для кого</td>
+                <td>Психологи та психотерапевти, які прагнуть державного підтвердження кваліфікації в Україні</td>
+                <td>Психологи з повною вищою освітою, орієнтовані на міжнародний стандарт або мобільність</td>
+              </tr>
+              <tr>
+                <td class="row-label">Основні вимоги</td>
+                <td><span class="unknown">Визначатимуться підзаконними актами — станом на дату публікації не затверджені</span></td>
+                <td>Вища освіта з психології — мінімум 5 років або 300 кредитів ECTS; 1 рік практики під супервізією (не менше 1500 годин за останні 3 роки); дотримання Мета-кодексу EFPA та Етичного кодексу НПА</td>
+              </tr>
+              <tr>
+                <td class="row-label">Статус процедур</td>
+                <td><span class="unknown">Комісія формується; регламент роботи не затверджений (станом на липень 2026)</span></td>
+                <td>Діє з 2026 року (основний період). Заявки приймаються через портал europsy.npa-ua.org</td>
+              </tr>
+              <tr>
+                <td class="row-label">Склад органу</td>
+                <td>6 центральних органів виконавчої влади (по 2 представники) + представники СРО</td>
+                <td>Національний комітет EuroPsy, призначений EFPA</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>Нацкомісія: що відомо і що ще визначається</h2>
+
+          <p>Національна комісія з питань психічного здоров'я — новий державний орган, прямо передбачений Законом № 4223-IX. Вона уповноважена сертифікувати фахівців за профільними методами.</p>
+
+          <h3>Що відомо достовірно</h3>
+          <ul>
+            <li>Склад Комісії: 6 центральних органів виконавчої влади (по 2 представники від кожного) та представники саморегулівних організацій.</li>
+            <li>Комісія — основний державний механізм сертифікації, що відповідає вимогам закону для роботи з державними установами й закладами охорони здоров'я.</li>
+            <li>Закон відносить до СРО, що можуть брати участь у роботі Комісії, організації з діяльністю не менше 5 років, часткою не менше 80% фахівців у відповідній сфері та міжнародною акредитацією. У сфері психотерапії це — УПЛ (Українська психотерапевтична ліга) та УСП (Українська спілка психотерапевтів).</li>
+          </ul>
+
+          <h3>Що ще не визначено</h3>
+          <ul>
+            <li>Регламент роботи Комісії станом на липень 2026 не затверджений.</li>
+            <li>Конкретний перелік методів, що підлягатимуть сертифікації, — визначатиметься підзаконними актами Кабінету Міністрів та МОЗ.</li>
+            <li>Строки, вартість і порядок подачі документів — не оприлюднені.</li>
+          </ul>
+
+          <blockquote>
+            <p>Зверніть увагу: відсутність регламенту не означає відсутності закону. Сертифікація є добровільною до 7 лютого 2031 року — часу для підготовки достатньо.</p>
+          </blockquote>
+
+          <h2>EuroPsy через НПА: що відомо</h2>
+
+          <p>EuroPsy — система сертифікації Європейської федерації психологічних асоціацій (EFPA). В Україні її впроваджує Національна психологічна асоціація (НПА), яка є членом EFPA з 2017 року. З 2026 року Україна перейшла від пілотного до <strong>основного</strong> (повноцінного) періоду сертифікації EuroPsy.</p>
+
+          <h3>Вимоги до базового сертифіката EuroPsy</h3>
+          <p>Ці вимоги опубліковані на офіційному порталі НПА (<a href="https://europsy.npa-ua.org/receiving/" target="_blank" rel="noopener">europsy.npa-ua.org</a>):</p>
+          <ul>
+            <li><strong>Освіта:</strong> повна вища освіта з психології тривалістю мінімум 5 років або 300 кредитів ECTS.</li>
+            <li><strong>Практика під супервізією:</strong> не менше 1 року (мінімум 1500 годин), здобутих протягом останніх 3 років.</li>
+            <li><strong>Етичні стандарти:</strong> підписана заява про дотримання Мета-кодексу EFPA та Етичного кодексу НПА.</li>
+          </ul>
+
+          <h3>Що ще не підтверджено публічно</h3>
+          <ul>
+            <li>Точна вартість сертифікації та строки розгляду заявок — не вказані на публічних сторінках порталу (станом на дату публікації).</li>
+            <li>Вимоги до CPD (безперервного навчання) для поновлення сертифіката — уточнюйте безпосередньо у НПА.</li>
+          </ul>
+
+          <p>Актуальна інформація про прийом заявок публікується на <a href="https://npa-ua.org/" target="_blank" rel="noopener">npa-ua.org</a> та <a href="https://europsy.npa-ua.org/" target="_blank" rel="noopener">europsy.npa-ua.org</a>.</p>
+
+          <hr>
+
+          <h2>Як обрати: об'єктивні критерії</h2>
+
+          <p>Вибір між двома шляхами визначається кількома конкретними чинниками:</p>
+
+          <h3>Якщо важливе державне підтвердження в Україні</h3>
+          <p>Нацкомісія — єдиний державний орган сертифікації, передбачений законом. Для роботи в державних установах або закладах охорони здоров'я, де може вимагатися саме державний документ, цей шлях є профільним. Водночас процедури ще не запущені — чекайте на підзаконні акти.</p>
+
+          <h3>Якщо важливе міжнародне визнання</h3>
+          <p>EuroPsy визнається у 36 країнах — членах EFPA. Якщо ви плануєте роботу за кордоном, нострифікацію диплома або орієнтуєтесь на міжнародні стандарти — цей шлях доступний уже зараз, процедури діють.</p>
+
+          <h3>Якщо важлива готовність до сертифікації вже сьогодні</h3>
+          <p>EuroPsy — єдиний з двох шляхів, який реально функціонує у 2026 році. Нацкомісія поки що формується. Якщо ви хочете пройти сертифікацію зараз — вибір фактично один.</p>
+
+          <h3>Якщо ви психотерапевт</h3>
+          <p>Закон передбачає участь профільних СРО у сертифікації через Нацкомісію. У сфері психотерапії такими організаціями є УПЛ та УСП. Додатково існує окрема процедура отримання Європейського сертифіката з психотерапії через УСП. Ці шляхи не взаємовиключні, проте детальніше регулювання ще формується.</p>
+
+          <p>Обидва шляхи законні. Конкуренції між ними немає — закон допускає поєднання. Вибір залежить від вашої практики, географії та цілей.</p>
+
+        </article>
+
+        <!-- Читайте також -->
+        <section class="related-articles" aria-label="Читайте також">
+          <h3>Читайте також</h3>
+          <div class="related-grid">
+            <a href="/articles/yak-otrymaty-sertyfikat-psykholoha/" class="related-card">
+              <span class="related-badge">Практичні питання</span>
+              <span class="related-title">Як отримати сертифікат: що відомо зараз</span>
+            </a>
+            <a href="/articles/zakon-4223-ix-zminy-dlya-psykholohiv/" class="related-card">
+              <span class="related-badge">Законодавство</span>
+              <span class="related-title">Закон № 4223-IX: що змінюється для психологів</span>
+            </a>
+            <a href="/articles/chy-mozhna-bez-sertyfikata/" class="related-card">
+              <span class="related-badge">Практичні питання</span>
+              <span class="related-title">Чи можна практикувати без сертифіката?</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- Форма підписки -->
+        <section class="article-signup" aria-labelledby="article-signup-label">
+          <label class="article-signup-label" id="article-signup-label" for="article-email">
+            Отримуйте оновлення по темі
+          </label>
+          <form class="article-signup-form" id="article-signup-form" novalidate>
+            <input
+              type="email"
+              id="article-email"
+              name="email"
+              placeholder="ваш@email.com"
+              required
+              autocomplete="email"
+              aria-label="Email для підписки">
+            <button type="submit" id="article-submit-btn">Підписатися</button>
+          </form>
+          <div id="article-form-status" class="form-status" role="status" aria-live="polite"></div>
+          <p class="form-note">Лише важливе — без спаму. Відписатися можна у будь-який момент.</p>
+        </section>
+
+      </div><!-- /ліва колонка -->
+
+      <!-- ═══ Правий сайдбар: ключові факти ═══ -->
+      <aside class="key-facts" aria-label="Ключові факти">
+        <h3>Ключові факти</h3>
+        <ul>
+          <li>
+            <div>
+              <strong>Нацкомісія</strong>
+              Державна сертифікація в Україні — процедури ще формуються
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>EuroPsy</strong>
+              Міжнародна сертифікація, визнається у 36 країнах EFPA — діє з 2026
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Обидва шляхи законні</strong>
+              Закон № 4223-IX (набрав чинності 7 лютого 2026) допускає обидва
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>Вибір залежить від цілей</strong>
+              Держава vs міжнародне визнання — можна поєднувати
+            </div>
+          </li>
+          <li>
+            <div>
+              <strong>До 2031 — добровільно</strong>
+              Обов'язкова сертифікація — з 7 лютого 2031
+            </div>
+          </li>
+        </ul>
+        <hr class="key-facts-divider">
+        <p class="key-facts-law">
+          Першоджерело: <a href="https://zakon.rada.gov.ua/laws/show/4223-20" target="_blank" rel="noopener">Закон № 4223-IX на zakon.rada.gov.ua</a>
+        </p>
+        <p class="key-facts-law" style="margin-top: 8px;">
+          EuroPsy в Україні: <a href="https://europsy.npa-ua.org/" target="_blank" rel="noopener">europsy.npa-ua.org</a>
+        </p>
+      </aside>
+
+    </div><!-- /article-grid -->
+
+  </div><!-- /wrap -->
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const form   = document.getElementById('article-signup-form');
+    const status = document.getElementById('article-form-status');
+    const btn    = document.getElementById('article-submit-btn');
+    const input  = document.getElementById('article-email');
+
+    function showStatus(msg, type) {
+      status.textContent = msg;
+      status.className = 'form-status show ' + type;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'form-status';
+      status.textContent = '';
+
+      const email = input.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Будь ласка, введіть коректний email.', 'error');
+        return;
+      }
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Надсилаємо…';
+
+      try {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, source: 'article-europsy' })
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          showStatus('Дякуємо! Надсилатимемо лише важливі оновлення — без зайвого.', 'success');
+        } else {
+          const data = await response.json().catch(() => ({}));
+          showStatus(data.message || 'Не вдалося надіслати. Спробуйте ще раз.', 'error');
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      } catch (err) {
+        showStatus(‘Помилка з’єднання. Перевірте інтернет і спробуйте ще раз.’, ‘error’);
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

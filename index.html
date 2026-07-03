@@ -142,6 +142,27 @@
     transform: translateY(-1px);
   }
 
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-cta {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1.5px solid var(--accent);
+    border-radius: 999px;
+    transition: background 0.15s, color 0.15s;
+    white-space: nowrap;
+  }
+  .header-cta:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
   /* Hero */
   .hero {
     padding: 72px 0 48px;
@@ -368,10 +389,110 @@
   footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
   footer a:hover { color: var(--accent); border-color: var(--accent); }
 
+  /* Article cards */
+  .article-cards {
+    display: grid;
+    gap: 12px;
+  }
+  .article-card {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    transition: border-color 0.15s, transform 0.15s;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .article-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-1px);
+  }
+  .article-card-content { flex: 1; }
+  .article-card-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent);
+    margin-bottom: 6px;
+    letter-spacing: 0.01em;
+  }
+  .article-card-title {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .article-card-desc {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+  .article-card-arrow {
+    flex-shrink: 0;
+    font-size: 18px;
+    color: var(--ink-muted);
+    line-height: 1;
+    margin-top: 2px;
+    transition: color 0.15s;
+  }
+  .article-card:hover .article-card-arrow {
+    color: var(--accent);
+  }
+
   @media (max-width: 520px) {
     .hero { padding: 48px 0 32px; }
     .form-card { padding: 24px 20px; }
     section { padding: 32px 0; }
+  }
+
+  .psychologist-cta {
+    background: var(--accent);
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .psychologist-cta .badge {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+  }
+  .psychologist-cta h2 {
+    color: #fff;
+    margin: 8px 0 12px;
+  }
+  .psychologist-cta p {
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+    max-width: 420px;
+  }
+  .cta-btn {
+    display: inline-block;
+    padding: 14px 24px;
+    background: #fff;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 15px;
+    font-family: inherit;
+    border-radius: var(--radius);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+  }
+  .cta-btn:hover { opacity: 0.92; }
+  @media (max-width: 520px) {
+    .psychologist-cta { padding: 24px 20px; }
+    .cta-btn { width: 100%; text-align: center; }
   }
 </style>
   <!-- Google tag (gtag.js) -->
@@ -387,8 +508,9 @@
 <body>
 
 <header>
-  <div class="wrap">
+  <div class="wrap header-inner">
     <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+    <a class="header-cta" href="/for-psychologists/">Для психологів →</a>
   </div>
 </header>
 
@@ -468,16 +590,64 @@
       </div>
     </section>
 
+    <section aria-labelledby="articles-h">
+      <h2 id="articles-h">Матеріали</h2>
+      <div class="article-cards">
+
+        <a href="/articles/zakon-4223-ix-zminy-dlya-psykholohiv/" class="article-card">
+          <div class="article-card-content">
+            <span class="article-card-badge">Законодавство</span>
+            <strong class="article-card-title">Закон № 4223-IX: що змінюється для психологів</strong>
+            <span class="article-card-desc">Детальний розбір: хто підпадає під дію, перехідні строки та два шляхи сертифікації</span>
+          </div>
+          <span class="article-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/articles/yak-otrymaty-sertyfikat-psykholoha/" class="article-card">
+          <div class="article-card-content">
+            <span class="article-card-badge">Практичні питання</span>
+            <strong class="article-card-title">Як отримати сертифікат психолога: що відомо зараз</strong>
+            <span class="article-card-desc">Два офіційних шляхи — через Нацкомісію та саморегулівні організації</span>
+          </div>
+          <span class="article-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/articles/natskomisiya-chy-europsy/" class="article-card">
+          <div class="article-card-content">
+            <span class="article-card-badge">Порівняння</span>
+            <strong class="article-card-title">Нацкомісія чи EuroPsy: два шляхи сертифікації</strong>
+            <span class="article-card-desc">Порівняння державної та міжнародної сертифікації з таблицею вимог</span>
+          </div>
+          <span class="article-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/articles/terminy-ta-deadlayiny/" class="article-card">
+          <div class="article-card-content">
+            <span class="article-card-badge">Дедлайни</span>
+            <strong class="article-card-title">Календар дедлайнів: ключові дати 2025–2031</strong>
+            <span class="article-card-desc">Повна хронологія від прийняття закону до обов'язкової сертифікації</span>
+          </div>
+          <span class="article-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="/articles/chy-mozhna-bez-sertyfikata/" class="article-card">
+          <div class="article-card-content">
+            <span class="article-card-badge">Практичні питання</span>
+            <strong class="article-card-title">Чи можна практикувати без сертифіката в 2026 році?</strong>
+            <span class="article-card-desc">Пряма відповідь на головне питання + FAQ</span>
+          </div>
+          <span class="article-card-arrow" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+    </section>
+
     <section aria-labelledby="signup-h">
       <div class="form-card">
         <h2 id="signup-h">Дізнатися першими про запуск</h2>
         <p class="form-lede">Залиште email — надішлемо одне повідомлення, коли платформа стане доступною. Жодного спаму, жодних розсилок до того.</p>
 
-        <form id="signup-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-          <input type="hidden" name="access_key" value="dd9f383e-c2ad-445a-a004-93d27337098c">
-          <input type="hidden" name="subject" value="Нова підписка — psy-cert.com.ua">
-          <input type="hidden" name="from_name" value="psy-cert.com.ua">
-          <input type="hidden" name="redirect" value="false">
+        <form id="signup-form" action="/api/subscribe" method="POST" novalidate>
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
 
           <input
@@ -494,6 +664,17 @@
         <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
 
         <p class="form-note">Натискаючи «Підписатися», ви погоджуєтесь отримати одне повідомлення про запуск платформи.</p>
+      </div>
+    </section>
+
+    <section aria-labelledby="psychologists-h">
+      <div class="psychologist-cta">
+        <div class="psychologist-cta-text">
+          <span class="badge">Для психологів</span>
+          <h2 id="psychologists-h">Ви практикуючий психолог?</h2>
+          <p>Зареєструйтесь зараз — і отримайте верифікований профіль на платформі при запуску. Клієнти шукатимуть фахівців тут.</p>
+        </div>
+        <a href="/for-psychologists/" class="cta-btn">Отримати профіль →</a>
       </div>
     </section>
 
@@ -533,11 +714,10 @@
     btn.textContent = 'Надсилаємо…';
 
     try {
-      const formData = new FormData(form);
       const response = await fetch(form.action, {
         method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
+        body: JSON.stringify({ email, source: 'index', botcheck: '' }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
       });
       const data = await response.json();
 

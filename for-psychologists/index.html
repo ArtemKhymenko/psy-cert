@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Для психологів — отримайте профіль першими | psy-cert.com.ua</title>
+<meta name="description" content="Зареєструйтесь зараз — і отримайте верифікований профіль на платформі psy-cert.com.ua при запуску восени 2026. Безкоштовно для перших учасників.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://psy-cert.com.ua/for-psychologists/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Для психологів — отримайте профіль першими | psy-cert.com.ua">
+<meta property="og:description" content="Зареєструйтесь зараз — і отримайте верифікований профіль на платформі psy-cert.com.ua при запуску восени 2026. Безкоштовно для перших учасників.">
+<meta property="og:url" content="https://psy-cert.com.ua/for-psychologists/">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  /* ─── Design tokens ─── */
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #4a566b;
+    --ink-muted: #8693a8;
+    --line: #e3e7ee;
+    --accent: #1e3a8a;
+    --accent-hover: #1e40af;
+    --success-bg: #ecfdf5;
+    --success-ink: #065f46;
+    --error-bg: #fef2f2;
+    --error-ink: #991b1b;
+    --radius: 10px;
+    --maxw: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* ─── Utilities ─── */
+  .wrap {
+    max-width: var(--maxw);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .badge {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(30, 58, 138, 0.08);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 24px;
+    letter-spacing: 0.01em;
+  }
+  p { margin: 0 0 16px; color: var(--ink-soft); }
+  p:last-child { margin-bottom: 0; }
+
+  /* ─── Header ─── */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* ─── Hero ─── */
+  .hero {
+    padding: 72px 0 48px;
+  }
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+  .lede {
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 0;
+    max-width: 580px;
+  }
+
+  /* ─── Sections ─── */
+  section { padding: 40px 0; }
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  /* ─── Features ─── */
+  .features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .features li {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    color: var(--ink);
+  }
+  .features li::before {
+    content: '';
+    flex-shrink: 0;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-top: 11px;
+  }
+  .features li span {
+    color: var(--ink-soft);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .features li strong {
+    display: block;
+    color: var(--ink);
+    font-weight: 600;
+    margin-bottom: 2px;
+    font-size: 15px;
+  }
+
+  /* ─── Form card ─── */
+  .form-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 32px;
+    margin-top: 8px;
+  }
+  .form-card h2 { margin-bottom: 8px; }
+  .form-card .form-lede {
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    font-size: 15px;
+  }
+
+  /* ─── Form fields ─── */
+  form { display: flex; flex-direction: column; gap: 12px; }
+
+  /* Form grid: 2 columns on wider screens */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  @media (min-width: 520px) {
+    .form-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  /* Shared input/select styles */
+  input[type="text"],
+  input[type="email"],
+  select {
+    width: 100%;
+    padding: 14px 16px;
+    font-size: 15px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: var(--surface);
+  }
+  input[type="text"]::placeholder,
+  input[type="email"]::placeholder { color: var(--ink-muted); }
+
+  /* Select: custom arrow */
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238693a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 40px;
+    cursor: pointer;
+  }
+  select option[value=""] { color: var(--ink-muted); }
+
+  /* Checkbox row */
+  .checkbox-row {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    accent-color: var(--accent);
+    cursor: pointer;
+  }
+  .checkbox-row label {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+    cursor: pointer;
+  }
+
+  /* Button */
+  button {
+    padding: 14px 24px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.05s;
+    white-space: nowrap;
+  }
+  button:hover { background: var(--accent-hover); }
+  button:active { transform: translateY(1px); }
+  button:disabled {
+    background: var(--ink-muted);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .form-note {
+    margin: 14px 0 0;
+    font-size: 13px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  .form-status {
+    margin-top: 14px;
+    padding: 12px 16px;
+    border-radius: var(--radius);
+    font-size: 14px;
+    line-height: 1.5;
+    display: none;
+  }
+  .form-status.show { display: block; }
+  .form-status.success {
+    background: var(--success-bg);
+    color: var(--success-ink);
+    border: 1px solid #a7f3d0;
+  }
+  .form-status.error {
+    background: var(--error-bg);
+    color: var(--error-ink);
+    border: 1px solid #fecaca;
+  }
+
+  /* ─── Footer ─── */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0 48px;
+    margin-top: 40px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer p { margin: 0; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ─── Mobile adjustments ─── */
+  @media (max-width: 520px) {
+    .hero { padding: 48px 0 32px; }
+    .form-card { padding: 24px 20px; }
+    section { padding: 32px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+  </div>
+</header>
+
+<!-- ═══════════ MAIN ═══════════ -->
+<main>
+  <div class="wrap">
+
+    <!-- Hero -->
+    <div class="hero">
+      <span class="badge">Для фахівців</span>
+      <h1>Отримайте профіль на платформі першими</h1>
+      <p class="lede">psy-cert.com.ua стає головним реєстром верифікованих психологів України. Клієнти перевірятимуть тут сертифікати — зареєструйтесь зараз, щоб бути серед перших.</p>
+    </div>
+
+    <!-- Features -->
+    <section aria-labelledby="features-h">
+      <h2 id="features-h">Що дає профіль</h2>
+      <ul class="features">
+        <li>
+          <div>
+            <strong>Видимість для клієнтів</strong>
+            <span>Клієнти знаходять вас за методом, містом, сертифікатом</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Підтвердження кваліфікації</strong>
+            <span>Верифікована освіта, сертифікати, досвід</span>
+          </div>
+        </li>
+        <li>
+          <div>
+            <strong>Безкоштовно для перших</strong>
+            <span>Реєстрація зараз безкоштовна; деталі тарифів — при запуску</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Registration form -->
+    <section aria-labelledby="form-h">
+      <div class="form-card">
+        <h2 id="form-h">Залишити заявку</h2>
+        <p class="form-lede">Заповніть форму — зв'яжемося перед запуском для підтвердження профілю.</p>
+
+        <form id="reg-form" novalidate>
+          <input
+            type="checkbox"
+            name="botcheck"
+            id="botcheck"
+            style="display:none"
+            tabindex="-1"
+            autocomplete="off">
+
+          <!-- Row 1: name + email -->
+          <div class="form-grid">
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Імʼя та прізвище"
+              required
+              autocomplete="name">
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="ваш@email.com"
+              required
+              autocomplete="email">
+          </div>
+
+          <!-- Row 2: city + specialization -->
+          <div class="form-grid">
+            <input
+              type="text"
+              name="city"
+              id="city"
+              placeholder="Місто"
+              autocomplete="address-level2">
+            <select name="specialization" id="specialization">
+              <option value="">Оберіть напрям роботи</option>
+              <option value="КПТ (когнітивно-поведінкова терапія)">КПТ (когнітивно-поведінкова терапія)</option>
+              <option value="Психодинамічна терапія">Психодинамічна терапія</option>
+              <option value="Гештальт-терапія">Гештальт-терапія</option>
+              <option value="Тілесно-орієнтована терапія">Тілесно-орієнтована терапія</option>
+              <option value="EMDR">EMDR</option>
+              <option value="Сімейна системна терапія">Сімейна системна терапія</option>
+              <option value="Екзистенційна терапія">Екзистенційна терапія</option>
+              <option value="Інше">Інше</option>
+            </select>
+          </div>
+
+          <!-- Experience -->
+          <select name="experience_years" id="experience_years">
+            <option value="">Роки практики</option>
+            <option value="1">До 2 років</option>
+            <option value="3">2–5 років</option>
+            <option value="6">6–10 років</option>
+            <option value="11">Понад 10 років</option>
+          </select>
+
+          <!-- Certificate checkbox -->
+          <div class="checkbox-row">
+            <input
+              type="checkbox"
+              name="has_certificate"
+              id="has_certificate"
+              value="1">
+            <label for="has_certificate">Маю діючий сертифікат (EuroPsy або інший)</label>
+          </div>
+
+          <button type="submit" id="submit-btn">Надіслати заявку</button>
+        </form>
+
+        <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+        <p class="form-note">Дані використовуються лише для зв'язку перед запуском платформи.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    const form   = document.getElementById('reg-form');
+    const status = document.getElementById('form-status');
+    const btn    = document.getElementById('submit-btn');
+
+    function showStatus(msg, type) {
+      status.textContent = msg;
+      status.className = 'form-status show ' + type;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.className = 'form-status';
+      status.textContent = '';
+
+      const name  = form.name.value.trim();
+      const email = form.email.value.trim();
+
+      if (!name) {
+        showStatus('Будь ласка, введіть імʼя та прізвище.', 'error');
+        form.name.focus();
+        return;
+      }
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showStatus('Будь ласка, введіть коректний email.', 'error');
+        form.email.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Надсилаємо…';
+
+      const payload = {
+        name,
+        email,
+        city:             form.city.value.trim(),
+        specialization:   form.specialization.value,
+        experience_years: parseInt(form.experience_years.value, 10) || 0,
+        has_certificate:  form.has_certificate.checked ? 1 : 0,
+        botcheck:         form.botcheck.checked ? 'on' : '',
+        source:           'for-psychologists'
+      };
+
+      try {
+        const response = await fetch('/api/register-psychologist', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body:    JSON.stringify(payload)
+        });
+
+        if (response.ok) {
+          form.style.display = 'none';
+          showStatus('Дякуємо! Ми зберегли вашу заявку. Зв’яжемося перед запуском платформи восени 2026.', 'success');
+        } else {
+          const data = await response.json().catch(() => ({}));
+          showStatus(data.message || 'Не вдалося надіслати. Спробуйте ще раз.', 'error');
+          btn.disabled = false;
+          btn.textContent = originalText;
+        }
+      } catch (err) {
+        showStatus('Помилка зʼєднання. Перевірте інтернет і спробуйте ще раз.', 'error');
+        btn.disabled = false;
+        btn.textContent = originalText;
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
