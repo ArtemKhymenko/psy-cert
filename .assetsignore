@@ -2,6 +2,8 @@ node_modules/
 .git/
 src/
 schema.sql
+schema-psychologists.sql
+schema-psychologists-v2.sql
 wrangler.jsonc
 package.json
 package-lock.json

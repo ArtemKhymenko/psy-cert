@@ -198,7 +198,8 @@
   /* Shared input/select styles */
   input[type="text"],
   input[type="email"],
-  select {
+  select,
+  textarea {
     width: 100%;
     padding: 14px 16px;
     font-size: 15px;
@@ -211,9 +212,12 @@
     -webkit-appearance: none;
     appearance: none;
   }
+  textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+
   input[type="text"]:focus,
   input[type="email"]:focus,
-  select:focus {
+  select:focus,
+  textarea:focus {
     outline: none;
     border-color: var(--accent);
     background: var(--surface);
@@ -439,6 +443,22 @@
             <label for="has_certificate">Маю діючий сертифікат (EuroPsy або інший)</label>
           </div>
 
+          <!-- Bio -->
+          <textarea
+            name="bio"
+            id="bio"
+            placeholder="Коротко про себе: методи, з ким і з чим працюєте (до 500 символів, необов'язково)"
+            maxlength="1000"
+            rows="3"></textarea>
+
+          <!-- Website -->
+          <input
+            type="text"
+            name="website"
+            id="website"
+            placeholder="Ваш сайт або соцмережа (необов'язково)"
+            autocomplete="url">
+
           <button type="submit" id="submit-btn">Надіслати заявку</button>
         </form>
 
@@ -499,6 +519,8 @@
         specialization:   form.specialization.value,
         experience_years: parseInt(form.experience_years.value, 10) || 0,
         has_certificate:  form.has_certificate.checked ? 1 : 0,
+        bio:              form.bio.value.trim() || '',
+        website:          form.website.value.trim() || '',
         botcheck:         form.botcheck.checked ? 'on' : '',
         source:           'for-psychologists'
       };
