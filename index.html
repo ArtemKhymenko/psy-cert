@@ -163,6 +163,20 @@
     background: var(--accent);
     color: #fff;
   }
+  .header-nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .header-nav-link {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.15s;
+    white-space: nowrap;
+  }
+  .header-nav-link:hover { color: var(--accent); }
 
   /* Hero */
   .hero {
@@ -556,7 +570,10 @@
 <header>
   <div class="wrap header-inner">
     <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
-    <a class="header-cta" href="/for-psychologists/">Для психологів →</a>
+    <nav class="header-nav">
+      <a class="header-nav-link" href="/programs/">Курси</a>
+      <a class="header-cta" href="/for-psychologists/">Для психологів →</a>
+    </nav>
   </div>
 </header>
 

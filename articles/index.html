@@ -116,6 +116,19 @@
     border-bottom: 1px solid var(--line);
     background: var(--surface);
   }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-nav a:hover { color: var(--accent); }
   .brand {
     font-weight: 700;
     font-size: 16px;
@@ -350,6 +363,9 @@
 <header>
   <div class="wrap">
     <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+    <nav class="header-nav">
+      <a href="/programs/">Курси</a>
+    </nav>
   </div>
 </header>
 
