@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Калькулятор готовності до сертифікації психолога — psy-cert.com.ua</title>
+<meta name="description" content="Перевірте, чи готові ви до методичної сертифікації: EMDR-Practitioner, гештальт (НАГТУ/EAGT), ECP через УСП, схема-терапія ISST. Введіть свої години — отримайте рівень готовності і список того, чого бракує.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://psy-cert.com.ua/calculator/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Калькулятор готовності до сертифікації психолога — psy-cert.com.ua">
+<meta property="og:description" content="Введіть свої параметри — дізнайтеся рівень готовності до сертифікації за вашим методом і що саме треба добрати.">
+<meta property="og:url" content="https://psy-cert.com.ua/calculator/">
+<meta property="og:locale" content="uk_UA">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Калькулятор готовності до сертифікації психолога",
+  "url": "https://psy-cert.com.ua/calculator/",
+  "inLanguage": "uk-UA",
+  "description": "Інтерактивний калькулятор: перевірте готовність до методичної сертифікації EMDR, гештальт (EAGT/НАГТУ), ECP через УСП та схема-терапії ISST.",
+  "publisher": {
+    "@type": "Organization",
+    "name": "psy-cert.com.ua",
+    "url": "https://psy-cert.com.ua/"
+  }
+}
+</script>
+
+<style>
+  /* ─── Design tokens ─── */
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #4a566b;
+    --ink-muted: #8693a8;
+    --line: #e3e7ee;
+    --accent: #1e3a8a;
+    --accent-hover: #1e40af;
+    --green: #065f46;
+    --green-bg: #ecfdf5;
+    --amber-bg: #fffbeb;
+    --amber-line: #fcd34d;
+    --amber-ink: #92400e;
+    --radius: 10px;
+    --maxw: 760px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .brand-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+  .header-nav { display: flex; gap: 18px; }
+  .header-nav a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .header-nav a:hover { color: var(--accent); }
+
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px;
+    font-size: 13px; color: var(--ink-muted); padding: 20px 0 0;
+  }
+  .breadcrumbs a { color: var(--ink-muted); text-decoration: none; transition: color 0.15s; }
+  .breadcrumbs a:hover { color: var(--accent); }
+  .breadcrumbs .bc-sep { color: var(--line); font-size: 15px; user-select: none; }
+  .breadcrumbs .bc-current { color: var(--ink-soft); }
+
+  /* Hero */
+  .hub-hero { padding: 36px 0 8px; }
+  h1 {
+    font-size: clamp(26px, 4.5vw, 36px);
+    line-height: 1.2;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+  }
+  .lede { font-size: 17px; line-height: 1.6; color: var(--ink-soft); margin: 0; }
+
+  .answer-box {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    margin: 24px 0 0;
+    font-size: 15px;
+    color: var(--ink-soft);
+  }
+  .answer-box strong { color: var(--ink); }
+
+  /* Track selector */
+  .track-select { padding: 28px 0 4px; }
+  .track-select-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin: 0 0 10px;
+  }
+  .track-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .track-chip {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 9px 16px;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+  .track-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .track-chip.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  /* Calculator card */
+  .calc-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 20px;
+  }
+  .calc-card h2 { font-size: 20px; font-weight: 700; margin: 0 0 4px; letter-spacing: -0.01em; }
+  .calc-source {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 0 0 20px;
+  }
+  .calc-source a { color: var(--ink-soft); }
+
+  .req-group { margin: 0 0 18px; }
+  .req-group-title {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-muted);
+    margin: 0 0 10px;
+  }
+  .req-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .req-item:last-child { border-bottom: none; }
+  .req-label { font-size: 14.5px; color: var(--ink); flex: 1; line-height: 1.45; }
+  .req-label small { display: block; color: var(--ink-muted); font-size: 12.5px; }
+  .req-item input[type="number"] {
+    width: 90px;
+    padding: 8px 10px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--ink);
+    text-align: right;
+  }
+  .req-item input[type="number"]:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+  .req-item input[type="checkbox"] {
+    width: 20px; height: 20px;
+    accent-color: var(--accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .req-status { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+
+  /* Result */
+  .result-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 28px;
+    margin-top: 16px;
+  }
+  .result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 14px;
+  }
+  .result-title { font-size: 17px; font-weight: 700; margin: 0; }
+  .result-pct { font-size: 28px; font-weight: 700; color: var(--accent); }
+  .progress-track {
+    height: 10px;
+    background: var(--bg);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width 0.4s ease;
+  }
+  .progress-fill.done { background: #059669; }
+  .result-verdict { font-size: 15px; color: var(--ink-soft); margin: 0 0 14px; }
+  .result-verdict strong { color: var(--ink); }
+  .missing-list { margin: 0; padding: 0; list-style: none; }
+  .missing-list li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    border-bottom: 1px solid var(--line);
+  }
+  .missing-list li:last-child { border-bottom: none; }
+  .missing-list li::before { content: '○'; color: var(--ink-muted); flex-shrink: 0; }
+  .missing-list li.met { color: var(--ink-muted); }
+  .missing-list li.met::before { content: '✓'; color: var(--green); }
+  .result-cta {
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 14.5px;
+    color: var(--ink-soft);
+  }
+  .result-cta a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .result-cta a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  .save-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 14px 0 0;
+  }
+
+  /* State cert block */
+  .state-block {
+    background: var(--amber-bg);
+    border: 1px solid var(--amber-line);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 36px;
+  }
+  .state-block h2 { font-size: 18px; font-weight: 700; margin: 0 0 10px; color: var(--amber-ink); }
+  .state-block p { font-size: 14.5px; color: var(--amber-ink); margin: 0 0 12px; line-height: 1.6; }
+  .state-block p:last-of-type { margin-bottom: 0; }
+  .state-block a { color: var(--amber-ink); font-weight: 600; }
+  .state-form { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
+  @media (min-width: 520px) { .state-form { flex-direction: row; } }
+  .state-form input[type="email"] {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--amber-line);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--ink);
+  }
+  .state-form input[type="email"]:focus { outline: none; border-color: var(--amber-ink); }
+  .state-form button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .state-form button:hover { background: var(--accent-hover); }
+  .state-form button:disabled { background: var(--ink-muted); cursor: not-allowed; }
+  .state-status { display: none; margin-top: 10px; font-size: 13.5px; color: var(--green); }
+  .state-status.show { display: block; }
+
+  /* Disclaimer + footer */
+  .disclaimer {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin: 32px 0 0;
+    line-height: 1.6;
+  }
+  footer {
+    border-top: 1px solid var(--line);
+    margin-top: 56px;
+    padding: 32px 0 48px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer p { margin: 0; color: var(--ink-muted); }
+  footer a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line); }
+  footer a:hover { color: var(--accent); border-color: var(--accent); }
+
+  @media (max-width: 520px) {
+    .hub-hero { padding: 24px 0 4px; }
+    .calc-card, .result-card { padding: 20px; }
+    .state-block { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+    <nav class="header-nav">
+      <a href="/programs/">Курси</a>
+      <a href="/articles/">Матеріали</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <nav class="breadcrumbs" aria-label="Навігація сторінками">
+      <a href="/">Головна</a>
+      <span class="bc-sep" aria-hidden="true">›</span>
+      <span class="bc-current">Калькулятор готовності</span>
+    </nav>
+
+    <div class="hub-hero">
+      <h1>Калькулятор готовності до сертифікації</h1>
+      <p class="lede">Оберіть свій напрям, введіть, що вже маєте — і побачите рівень готовності та список того, що треба добрати. Дані зберігаються локально у вашому браузері.</p>
+    </div>
+
+    <div class="answer-box">
+      <strong>Важливо:</strong> калькулятор рахує <strong>методичні сертифікації</strong> з публічно затвердженими вимогами (EMDR Europe, EAGT/НАГТУ, ECP через УСП, ISST). Вимоги до державного сертифіката за Законом № 4223-IX ще не затверджені підзаконними актами — цей розрахунок з'явиться, щойно вони вийдуть (див. блок унизу).
+    </div>
+
+    <div class="track-select">
+      <p class="track-select-label">Ваш напрям / метод:</p>
+      <div class="track-chips" id="track-chips" role="tablist"></div>
+    </div>
+
+    <div class="calc-card" id="calc-card"></div>
+
+    <div class="result-card" id="result-card"></div>
+
+    <p class="save-note">Розрахунок автоматично зберігається у вашому браузері (localStorage) — можна повернутись і продовжити. Кабінет із збереженим профілем — у планах на осінь 2026.</p>
+
+    <div class="state-block">
+      <h2>А державний сертифікат за Законом № 4223-IX?</h2>
+      <p>Чесна відповідь: порахувати готовність до державної сертифікації зараз неможливо — закон рамковий, а підзаконні акти з конкретними вимогами (документи, години, перелік визнаних методів) станом на липень 2026 ще не ухвалені. Що вже відомо з самого закону: знадобиться профільна освіта і підготовка за визнаним методом — тож завершена методична освіта (яку рахує цей калькулятор) точно не буде зайвою. Детальніше — у розборі <a href="/articles/yak-otrymaty-sertyfikat-psykholoha/">«Як отримати сертифікат психолога»</a>.</p>
+      <p><strong>Залиште email — додамо розрахунок державного треку, щойно вимоги затвердять, і надішлемо вам першим.</strong></p>
+      <form class="state-form" id="state-form" novalidate>
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <input type="email" id="state-email" placeholder="ваш@email.com" autocomplete="email" aria-label="Email">
+        <button type="submit" id="state-btn">Повідомити мене</button>
+      </form>
+      <div class="state-status" id="state-status" role="status" aria-live="polite"></div>
+    </div>
+
+    <p class="disclaimer">Калькулятор — орієнтовний інструмент на основі публічних вимог організацій (стан на липень 2026). Він не є офіційною оцінкою: фінальне рішення про сертифікацію ухвалює відповідна організація. Перед подачею документів звіряйте вимоги на офіційних сайтах — посилання під кожним розрахунком.</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ─── Вимоги: тільки публічно підтверджені цифри ─── */
+  var TRACKS = {
+    emdr: {
+      title: 'EMDR-Practitioner (Асоціація ЕМДР Україна / EMDR Europe)',
+      source: { label: 'emdr.com.ua — вимоги і тренінги', url: 'https://emdr.com.ua/for-expert/trenings' },
+      programsAnchor: '/programs/#h-emdr',
+      groups: [
+        { title: 'Освіта та досвід', items: [
+          { id: 'edu', type: 'bool', label: 'Вища психологічна або медична освіта' },
+          { id: 'base_method', type: 'bool', label: 'Завершена психотерапевтична освіта за базовим методом', hint: 'в акредитованій інституції (КПТ, гештальт тощо)' },
+          { id: 'practice_years', type: 'num', label: 'Роки психотерапевтичної практики', target: 2, unit: 'р.' }
+        ]},
+        { title: 'Навчання', items: [
+          { id: 'intro_sem', type: 'bool', label: 'Вступний семінар, акредитований EMDR Ukraine' },
+          { id: 'trauma_sem', type: 'bool', label: 'Семінар з комплексної травми' },
+          { id: 'basic_training', type: 'bool', label: 'Базовий тренінг EMDR рівні 1–2 у акредитованого тренера' },
+          { id: 'ethics', type: 'num', label: 'Академічні години з етики психотерапії', target: 16, unit: 'год' }
+        ]},
+        { title: 'Супервізія', items: [
+          { id: 'sup_training', type: 'num', label: 'Години супервізії під час тренінгу', target: 10, unit: 'год' },
+          { id: 'sup_extra', type: 'num', label: 'Години супервізії поза навчанням', target: 20, unit: 'год', hint: 'не менше 50% усіх супервізій — індивідуальні' }
+        ]},
+        { title: 'Клінічна практика EMDR', items: [
+          { id: 'sessions', type: 'num', label: 'Проведені сесії EMDR', target: 50 },
+          { id: 'clients', type: 'num', label: 'Клієнти, з якими працювали в EMDR', target: 25 }
+        ]},
+        { title: 'Особиста терапія та членство', items: [
+          { id: 'own_emdr', type: 'num', label: 'Години власного досвіду EMDR-терапії', target: 10, unit: 'год' },
+          { id: 'own_therapy', type: 'num', label: 'Години особистої терапії', target: 100, unit: 'год' },
+          { id: 'membership', type: 'bool', label: 'Членство в асоціації EMDR Ukraine' }
+        ]}
+      ]
+    },
+    gestalt: {
+      title: 'Гештальт-терапевт (НАГТУ, за стандартами EAGT)',
+      source: { label: 'gestalt.org.ua — процедура сертифікації', url: 'https://gestalt.org.ua/sertyfikatsiya-studentiv-inshyh-instytuciy/' },
+      programsAnchor: '/programs/#h-gestalt',
+      groups: [
+        { title: 'Освіта та програма', items: [
+          { id: 'edu', type: 'bool', label: 'Вища освіта у психології або медицині' },
+          { id: 'stage1', type: 'bool', label: 'Завершений І ступінь гештальт-підготовки' },
+          { id: 'stage2_hours', type: 'num', label: 'Години програми ІІ ступеню', target: 540, unit: 'год', hint: '18 сесій × 30 год у НАГТУ' }
+        ]},
+        { title: 'Особиста терапія', items: [
+          { id: 'ind_therapy', type: 'num', label: 'Години індивідуальної терапії (гештальт-підхід)', target: 100, unit: 'год' },
+          { id: 'ind_one', type: 'num', label: '…з них у одного терапевта', target: 60, unit: 'год' },
+          { id: 'group_therapy', type: 'num', label: 'Години групової терапії (гештальт-підхід)', target: 80, unit: 'год' }
+        ]},
+        { title: 'Кейси та участь', items: [
+          { id: 'case1', type: 'bool', label: 'Письмовий кейс №1 (мінімум 15 сесій)' },
+          { id: 'case23', type: 'bool', label: 'Кейси №2 і №3 (мінімум по 9 сесій)' },
+          { id: 'conf', type: 'bool', label: 'Участь у конференції НАГТУ' },
+          { id: 'intensive', type: 'bool', label: 'Участь в інтенсиві НАГТУ' },
+          { id: 'supervision', type: 'bool', label: 'Підтверджені години супервізії', hint: 'кількість не нормована публічно — за вимогами вашої інституції' }
+        ]}
+      ]
+    },
+    ecp: {
+      title: 'Європейський сертифікат психотерапевта (ECP) через УСП',
+      source: { label: 'usp.community — навчальні програми', url: 'https://usp.community/' },
+      programsAnchor: '/programs/#h-family',
+      groups: [
+        { title: 'Теорія', items: [
+          { id: 'theory', type: 'num', label: 'Години теорії загалом', target: 600, unit: 'год' },
+          { id: 'theory_method', type: 'num', label: '…з них спеціалізованої теорії вашого методу', target: 300, unit: 'год' }
+        ]},
+        { title: 'Особистий досвід', items: [
+          { id: 'personal', type: 'num', label: 'Години особистого досвіду (терапія / навчальна група)', target: 300, unit: 'год' }
+        ]},
+        { title: 'Практика та супервізія', items: [
+          { id: 'practice', type: 'num', label: 'Години самостійної психотерапевтичної практики', target: 600, unit: 'год', hint: 'у сфері охорони здоров’я, освіти чи психосоціальній' },
+          { id: 'supervision', type: 'num', label: 'Години супервізії', target: 150, unit: 'год' }
+        ]},
+        { title: 'Завершення', items: [
+          { id: 'thesis', type: 'bool', label: 'Захист теоретичної та практичної частин випускної роботи' }
+        ]}
+      ]
+    },
+    schema: {
+      title: 'Схема-терапія: готовність до програми ISST (УІСТ)',
+      source: { label: 'uist.com.ua — базова акредитаційна програма', url: 'https://uist.com.ua/bazova_st' },
+      programsAnchor: '/programs/#h-schema',
+      note: 'Це розрахунок готовності до вступу і проходження базової програми. Повна сертифікація ISST додатково вимагає супервізій та оцінених кейсів — деталі уточнюйте в УІСТ.',
+      groups: [
+        { title: 'Вимоги на вході', items: [
+          { id: 'edu', type: 'bool', label: 'Магістр / спеціаліст з психології, психіатрії, психотерапії або медичної психології' },
+          { id: 'base_hours', type: 'num', label: 'Години базової психотерапевтичної освіти', target: 500, unit: 'год', hint: 'або спеціалізація «Клінічна психологія» / «Психотерапія»' }
+        ]},
+        { title: 'Базова програма', items: [
+          { id: 'seminars', type: 'num', label: 'Пройдені години базової програми УІСТ', target: 62, unit: 'год', hint: '14 семінарів; для сертифіката ISST — присутність ≥90%' }
+        ]}
+      ]
+    }
+  };
+
+  var TRACK_LABELS = { emdr: 'EMDR', gestalt: 'Гештальт', ecp: 'ECP (УСП)', schema: 'Схема-терапія' };
+  var LS_KEY = 'psycert_calc_v1';
+
+  var chipsEl  = document.getElementById('track-chips');
+  var cardEl   = document.getElementById('calc-card');
+  var resultEl = document.getElementById('result-card');
+
+  var state = load();
+  var current = state._track && TRACKS[state._track] ? state._track : 'emdr';
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch (e) { return {}; }
+  }
+  function save() {
+    state._track = current;
+    try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function val(trackId, itemId) {
+    return (state[trackId] || {})[itemId];
+  }
+
+  function renderChips() {
+    chipsEl.innerHTML = Object.keys(TRACKS).map(function (k) {
+      return '<button class="track-chip' + (k === current ? ' active' : '') + '" data-track="' + k + '">' + esc(TRACK_LABELS[k]) + '</button>';
+    }).join('');
+  }
+
+  function renderCard() {
+    var t = TRACKS[current];
+    var html = '<h2>' + esc(t.title) + '</h2>' +
+      '<p class="calc-source">Джерело вимог: <a href="' + esc(t.source.url) + '" target="_blank" rel="noopener">' + esc(t.source.label) + '</a></p>';
+    if (t.note) html += '<p class="calc-source">' + esc(t.note) + '</p>';
+
+    t.groups.forEach(function (g) {
+      html += '<div class="req-group"><p class="req-group-title">' + esc(g.title) + '</p>';
+      g.items.forEach(function (it) {
+        var v = val(current, it.id);
+        var hint = it.hint ? '<small>' + esc(it.hint) + '</small>' : '';
+        var targetTxt = it.type === 'num' ? ' <small>потрібно: ' + it.target + (it.unit ? ' ' + esc(it.unit) : '') + '</small>' : '';
+        html += '<div class="req-item">' +
+          '<span class="req-label">' + esc(it.label) + targetTxt + hint + '</span>';
+        if (it.type === 'bool') {
+          html += '<input type="checkbox" data-id="' + it.id + '"' + (v ? ' checked' : '') + ' aria-label="' + esc(it.label) + '">';
+        } else {
+          html += '<input type="number" min="0" step="1" inputmode="numeric" data-id="' + it.id + '" value="' + (v != null ? esc(v) : '') + '" placeholder="0" aria-label="' + esc(it.label) + '">';
+        }
+        html += '<span class="req-status" data-status="' + it.id + '"></span></div>';
+      });
+      html += '</div>';
+    });
+    cardEl.innerHTML = html;
+  }
+
+  function compute() {
+    var t = TRACKS[current];
+    var met = 0, total = 0, missing = [], done = [];
+    t.groups.forEach(function (g) {
+      g.items.forEach(function (it) {
+        total++;
+        var v = val(current, it.id);
+        var ok, gap;
+        if (it.type === 'bool') {
+          ok = !!v;
+          gap = it.label;
+        } else {
+          var n = parseInt(v, 10) || 0;
+          ok = n >= it.target;
+          var left = Math.max(0, it.target - n);
+          gap = it.label + ' — бракує ' + left + (it.unit ? ' ' + it.unit : '');
+        }
+        var st = cardEl.querySelector('[data-status="' + it.id + '"]');
+        if (st) { st.textContent = ok ? '✓' : ''; st.style.color = '#059669'; }
+        if (ok) { met++; done.push(it.label); } else { missing.push(gap); }
+      });
+    });
+
+    var pct = total ? Math.round(met / total * 100) : 0;
+    var verdict, cta = '';
+    if (pct === 100) {
+      verdict = '<strong>Усі публічні вимоги виконані.</strong> Звірте деталі на офіційному сайті та подавайте документи.';
+    } else if (pct >= 70) {
+      verdict = 'Ви на фінальному відрізку — лишилось <strong>' + missing.length + '</strong> ' + plural(missing.length) + '.';
+    } else if (pct >= 35) {
+      verdict = 'Суттєва частина шляху пройдена. Ще треба добрати <strong>' + missing.length + '</strong> ' + plural(missing.length) + '.';
+    } else {
+      verdict = 'Ви на початку шляху до цієї сертифікації — нижче все, що треба набрати.';
+    }
+    if (pct < 100) {
+      cta = '<div class="result-cta">Добрати бракуюче можна на перевірених програмах — дивіться <a href="' + esc(t.programsAnchor) + '">каталог програм навчання</a>.</div>';
+    }
+
+    resultEl.innerHTML =
+      '<div class="result-head"><p class="result-title">Рівень готовності</p><span class="result-pct">' + pct + '%</span></div>' +
+      '<div class="progress-track"><div class="progress-fill' + (pct === 100 ? ' done' : '') + '" style="width:' + pct + '%"></div></div>' +
+      '<p class="result-verdict">' + verdict + '</p>' +
+      '<ul class="missing-list">' +
+        missing.map(function (m) { return '<li>' + esc(m) + '</li>'; }).join('') +
+        done.map(function (d) { return '<li class="met">' + esc(d) + '</li>'; }).join('') +
+      '</ul>' + cta;
+  }
+
+  function plural(n) {
+    var mod10 = n % 10, mod100 = n % 100;
+    if (mod10 === 1 && mod100 !== 11) return 'пункт';
+    if (mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14)) return 'пункти';
+    return 'пунктів';
+  }
+
+  chipsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest('.track-chip');
+    if (!btn) return;
+    current = btn.dataset.track;
+    save();
+    renderChips();
+    renderCard();
+    compute();
+  });
+
+  cardEl.addEventListener('input', function (e) {
+    var input = e.target;
+    var id = input.dataset.id;
+    if (!id) return;
+    if (!state[current]) state[current] = {};
+    state[current][id] = input.type === 'checkbox' ? input.checked : input.value;
+    save();
+    compute();
+  });
+
+  renderChips();
+  renderCard();
+  compute();
+
+  /* ─── Підписка на розрахунок державного треку ─── */
+  var stateForm = document.getElementById('state-form');
+  var stateBtn = document.getElementById('state-btn');
+  var stateEmail = document.getElementById('state-email');
+  var stateStatus = document.getElementById('state-status');
+
+  stateForm.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var email = stateEmail.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      stateStatus.textContent = 'Введіть коректний email.';
+      stateStatus.style.color = '#991b1b';
+      stateStatus.className = 'state-status show';
+      return;
+    }
+    stateBtn.disabled = true;
+    try {
+      var res = await fetch('/api/subscribe', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, source: 'calculator-state-track', botcheck: '' }),
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        stateForm.style.display = 'none';
+        stateStatus.textContent = 'Дякуємо! Повідомимо, щойно вимоги державної сертифікації буде затверджено.';
+        stateStatus.style.color = '#065f46';
+        stateStatus.className = 'state-status show';
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      stateStatus.textContent = 'Не вдалося надіслати. Спробуйте ще раз.';
+      stateStatus.style.color = '#991b1b';
+      stateStatus.className = 'state-status show';
+      stateBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
