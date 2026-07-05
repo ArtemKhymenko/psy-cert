@@ -283,6 +283,69 @@
     margin: 14px 0 0;
   }
 
+  /* Cabinet */
+  .cabinet-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin-top: 16px;
+  }
+  .cabinet-card h2 { font-size: 17px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .cabinet-card p { font-size: 14px; color: var(--ink-soft); margin: 0 0 14px; }
+  .cabinet-form { display: flex; flex-direction: column; gap: 10px; }
+  @media (min-width: 520px) { .cabinet-form { flex-direction: row; } }
+  .cabinet-form input {
+    flex: 1;
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+  }
+  .cabinet-form input:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+  .cabinet-form button {
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+  }
+  .cabinet-form button:hover { background: var(--accent-hover); }
+  .cabinet-form button:disabled { background: var(--ink-muted); cursor: not-allowed; }
+  .cabinet-status { font-size: 13.5px; margin: 10px 0 0; }
+  .cabinet-status.ok { color: var(--green); }
+  .cabinet-status.err { color: #991b1b; }
+  .cabinet-logged {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .cabinet-logged .who { font-size: 14px; color: var(--ink); font-weight: 600; }
+  .cabinet-logged .sync { font-size: 13px; color: var(--ink-muted); }
+  .cabinet-logout {
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 4px;
+  }
+  .cabinet-logout:hover { color: var(--ink); }
+
   /* State cert block */
   .state-block {
     background: var(--amber-bg);
@@ -390,7 +453,9 @@
 
     <div class="result-card" id="result-card"></div>
 
-    <p class="save-note">Розрахунок автоматично зберігається у вашому браузері (localStorage) — можна повернутись і продовжити. Кабінет із збереженим профілем — у планах на осінь 2026.</p>
+    <div class="cabinet-card" id="cabinet-card"></div>
+
+    <p class="save-note">Розрахунок автоматично зберігається у вашому браузері. Увійшовши в кабінет, ви синхронізуєте його з обліковим записом — і побачите з будь-якого пристрою.</p>
 
     <div class="state-block">
       <h2>А державний сертифікат за Законом № 4223-IX?</h2>
@@ -633,6 +698,7 @@
     renderChips();
     renderCard();
     compute();
+    scheduleSync();
   });
 
   cardEl.addEventListener('input', function (e) {
@@ -643,11 +709,201 @@
     state[current][id] = input.type === 'checkbox' ? input.checked : input.value;
     save();
     compute();
+    scheduleSync();
   });
 
   renderChips();
   renderCard();
   compute();
+
+  /* ─── Кабінет: вхід за кодом, синхронізація розрахунку ─── */
+  var SESSION_KEY = 'psycert_session';
+  var cabinetEl = document.getElementById('cabinet-card');
+  var syncTimer = null;
+  var pendingEmail = '';
+
+  function session() {
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch (e) { return null; }
+  }
+  function setSession(s) {
+    if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s));
+    else localStorage.removeItem(SESSION_KEY);
+  }
+
+  function cabinetStatus(msg, ok) {
+    var el = document.getElementById('cabinet-status');
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'cabinet-status ' + (ok ? 'ok' : 'err');
+  }
+
+  function renderCabinet(step) {
+    var s = session();
+    if (s && s.token) {
+      cabinetEl.innerHTML =
+        '<div class="cabinet-logged">' +
+          '<div><span class="who">' + esc(s.email) + '</span> <span class="sync" id="sync-note"></span></div>' +
+          '<button class="cabinet-logout" id="cabinet-logout">Вийти</button>' +
+        '</div>';
+      document.getElementById('cabinet-logout').addEventListener('click', logout);
+      return;
+    }
+    if (step === 'code') {
+      cabinetEl.innerHTML =
+        '<h2>Введіть код з листа</h2>' +
+        '<p>Надіслали 6-значний код на <strong>' + esc(pendingEmail) + '</strong>. Код діє 10 хвилин.</p>' +
+        '<form class="cabinet-form" id="code-form">' +
+          '<input type="text" id="cabinet-code" inputmode="numeric" pattern="\\d{6}" maxlength="6" placeholder="123456" aria-label="Код входу">' +
+          '<button type="submit">Увійти</button>' +
+        '</form>' +
+        '<p class="cabinet-status" id="cabinet-status"></p>';
+      document.getElementById('code-form').addEventListener('submit', verifyCode);
+      document.getElementById('cabinet-code').focus();
+      return;
+    }
+    cabinetEl.innerHTML =
+      '<h2>Кабінет: збережіть розрахунок за собою</h2>' +
+      '<p>Вхід без пароля — надішлемо одноразовий код на email. Розрахунок синхронізується і буде доступний з будь-якого пристрою.</p>' +
+      '<form class="cabinet-form" id="login-form">' +
+        '<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">' +
+        '<input type="email" id="cabinet-email" placeholder="ваш@email.com" autocomplete="email" aria-label="Email">' +
+        '<button type="submit">Отримати код</button>' +
+      '</form>' +
+      '<p class="cabinet-status" id="cabinet-status"></p>';
+    document.getElementById('login-form').addEventListener('submit', requestCode);
+  }
+
+  async function requestCode(e) {
+    e.preventDefault();
+    var email = document.getElementById('cabinet-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      cabinetStatus('Введіть коректний email.', false);
+      return;
+    }
+    var btn = e.target.querySelector('button');
+    btn.disabled = true;
+    try {
+      var res = await fetch('/api/auth/request-code', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, botcheck: '' }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        pendingEmail = email;
+        renderCabinet('code');
+      } else if (data.error === 'email_unavailable' || data.error === 'email_send_failed') {
+        cabinetStatus('Відправка кодів тимчасово недоступна — спробуйте пізніше. Ваш розрахунок надійно збережений у браузері.', false);
+        btn.disabled = false;
+      } else if (data.error === 'rate_limited') {
+        cabinetStatus('Забагато запитів — зачекайте годину і спробуйте знову.', false);
+        btn.disabled = false;
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      cabinetStatus('Не вдалося надіслати код. Спробуйте ще раз.', false);
+      btn.disabled = false;
+    }
+  }
+
+  async function verifyCode(e) {
+    e.preventDefault();
+    var code = document.getElementById('cabinet-code').value.trim();
+    if (!/^\d{6}$/.test(code)) {
+      cabinetStatus('Код — 6 цифр.', false);
+      return;
+    }
+    var btn = e.target.querySelector('button');
+    btn.disabled = true;
+    try {
+      var res = await fetch('/api/auth/verify', {
+        method: 'POST',
+        body: JSON.stringify({ email: pendingEmail, code: code }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        setSession({ token: data.token, email: data.email });
+        renderCabinet();
+        await pullOrPush();
+      } else {
+        cabinetStatus('Невірний або прострочений код. Спробуйте ще раз.', false);
+        btn.disabled = false;
+      }
+    } catch (err) {
+      cabinetStatus('Помилка з\'єднання. Спробуйте ще раз.', false);
+      btn.disabled = false;
+    }
+  }
+
+  async function logout() {
+    var s = session();
+    setSession(null);
+    renderCabinet();
+    if (s && s.token) {
+      fetch('/api/auth/logout', {
+        method: 'POST',
+        headers: { 'Authorization': 'Bearer ' + s.token }
+      }).catch(function () {});
+    }
+  }
+
+  function syncNote(msg) {
+    var el = document.getElementById('sync-note');
+    if (el) el.textContent = msg;
+  }
+
+  // Після входу: якщо на сервері є збережений розрахунок — беремо його,
+  // якщо нема — надсилаємо локальний
+  async function pullOrPush() {
+    var s = session();
+    if (!s) return;
+    try {
+      var res = await fetch('/api/calc', { headers: { 'Authorization': 'Bearer ' + s.token } });
+      if (res.status === 401) { setSession(null); renderCabinet(); return; }
+      var data = await res.json();
+      if (data.success && data.data) {
+        var remote = JSON.parse(data.data);
+        state = remote;
+        current = state._track && TRACKS[state._track] ? state._track : current;
+        save();
+        renderChips();
+        renderCard();
+        compute();
+        syncNote('· розрахунок відновлено з кабінету');
+      } else {
+        await pushState();
+      }
+    } catch (err) {
+      syncNote('· не вдалося синхронізувати');
+    }
+  }
+
+  async function pushState() {
+    var s = session();
+    if (!s) return;
+    try {
+      var res = await fetch('/api/calc', {
+        method: 'POST',
+        body: JSON.stringify(state),
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + s.token }
+      });
+      if (res.status === 401) { setSession(null); renderCabinet(); return; }
+      syncNote('· збережено в кабінеті');
+    } catch (err) {
+      syncNote('· не вдалося зберегти, спробуємо ще');
+    }
+  }
+
+  function scheduleSync() {
+    if (!session()) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(pushState, 1500);
+  }
+
+  renderCabinet();
+  if (session()) pullOrPush();
 
   /* ─── Підписка на розрахунок державного треку ─── */
   var stateForm = document.getElementById('state-form');

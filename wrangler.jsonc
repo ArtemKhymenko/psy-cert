@@ -12,6 +12,12 @@
 	"compatibility_flags": [
 		"nodejs_compat"
 	],
+	"send_email": [
+		{
+			"name": "EMAIL",
+			"allowed_sender_addresses": ["noreply@psy-cert.com.ua"]
+		}
+	],
 	"d1_databases": [
 		{
 			"binding": "DB",

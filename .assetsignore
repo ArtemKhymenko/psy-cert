@@ -4,6 +4,8 @@ src/
 schema.sql
 schema-psychologists.sql
 schema-psychologists-v2.sql
+schema-cabinet.sql
+.wrangler/
 programs-data.json
 wrangler.jsonc
 package.json
