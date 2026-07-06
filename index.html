@@ -177,6 +177,12 @@
     white-space: nowrap;
   }
   .header-nav-link:hover { color: var(--accent); }
+  @media (max-width: 640px) {
+    .header-inner { flex-wrap: wrap; row-gap: 10px; }
+    .header-nav { flex-wrap: wrap; gap: 12px; width: 100%; }
+    .header-nav-link { font-size: 13px; }
+    .header-cta { font-size: 13px; padding: 6px 12px; margin-left: auto; }
+  }
 
   /* Hero */
   .hero {
