@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Кабінет психолога — psy-cert.com.ua</title>
+<meta name="description" content="Ваш кабінет: розрахунок готовності до сертифікації та профіль у реєстрі психологів psy-cert.com.ua.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="https://psy-cert.com.ua/cabinet/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #f5f6f8;
+    --surface: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #4a566b;
+    --ink-muted: #8693a8;
+    --line: #e3e7ee;
+    --accent: #1e3a8a;
+    --accent-hover: #1e40af;
+    --green: #065f46;
+    --green-bg: #ecfdf5;
+    --amber-bg: #fffbeb;
+    --amber-line: #fcd34d;
+    --amber-ink: #92400e;
+    --error-bg: #fef2f2;
+    --error-ink: #991b1b;
+    --radius: 10px;
+    --maxw: 720px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+  header {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+  }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .brand { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; }
+  .brand-dot {
+    display: inline-block; width: 8px; height: 8px;
+    background: var(--accent); border-radius: 50%;
+    margin-right: 10px; vertical-align: middle; transform: translateY(-1px);
+  }
+  .header-nav { display: flex; gap: 18px; }
+  .header-nav a { font-size: 14px; font-weight: 500; color: var(--ink-soft); text-decoration: none; transition: color 0.15s; }
+  .header-nav a:hover { color: var(--accent); }
+
+  main { padding: 36px 0 60px; }
+  h1 { font-size: clamp(24px, 4vw, 32px); font-weight: 700; letter-spacing: -0.02em; margin: 0 0 8px; }
+  .lede { font-size: 15px; color: var(--ink-soft); margin: 0 0 24px; }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 18px; font-weight: 700; margin: 0 0 8px; letter-spacing: -0.01em; }
+  .card p { font-size: 14.5px; color: var(--ink-soft); margin: 0 0 14px; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .row-form { display: flex; flex-direction: column; gap: 10px; }
+  @media (min-width: 520px) { .row-form { flex-direction: row; } }
+  .row-form input { flex: 1; }
+
+  input[type="email"], input[type="text"], input[type="number"], input[type="url"], select, textarea {
+    padding: 12px 14px;
+    font-size: 14px;
+    font-family: inherit;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--bg);
+    color: var(--ink);
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent); background: var(--surface); }
+  textarea { min-height: 110px; resize: vertical; }
+  label { display: block; font-size: 13px; font-weight: 600; color: var(--ink-soft); margin: 0 0 6px; }
+  .field { margin-bottom: 14px; }
+  .field-check { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .field-check input { width: 20px; height: 20px; accent-color: var(--accent); }
+  .field-check span { font-size: 14px; color: var(--ink); }
+
+  button.primary {
+    padding: 12px 22px;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: inherit;
+    color: #fff;
+    background: var(--accent);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s;
+    white-space: nowrap;
+  }
+  button.primary:hover { background: var(--accent-hover); }
+  button.primary:disabled { background: var(--ink-muted); cursor: not-allowed; }
+  .linklike {
+    font-size: 13px;
+    color: var(--ink-soft);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    padding: 4px;
+  }
+  .linklike:hover { color: var(--ink); }
+
+  .status-msg { font-size: 13.5px; margin: 10px 0 0; }
+  .status-msg.ok { color: var(--green); }
+  .status-msg.err { color: var(--error-ink); }
+
+  .who-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .who-bar .who { font-size: 14px; font-weight: 600; }
+
+  .badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .badge.pending  { background: var(--amber-bg); color: var(--amber-ink); border: 1px solid var(--amber-line); }
+  .badge.approved { background: #eff6ff; color: var(--accent); border: 1px solid #bfdbfe; }
+  .badge.published{ background: var(--green-bg); color: var(--green); border: 1px solid #a7f3d0; }
+  .badge.rejected { background: var(--error-bg); color: var(--error-ink); border: 1px solid #fecaca; }
+
+  .calc-line { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+  .calc-line a { color: var(--accent); font-weight: 600; text-decoration: none; font-size: 14.5px; }
+  .calc-line a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .muted { font-size: 13px; color: var(--ink-muted); }
+
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 32px 0 48px;
+    font-size: 13px;
+    color: var(--ink-muted);
+  }
+  footer p { margin: 0; }
+
+  @media (max-width: 520px) { .card { padding: 20px; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
+    <nav class="header-nav">
+      <a href="/programs/">Курси</a>
+      <a href="/calculator/">Калькулятор</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <h1>Кабінет психолога</h1>
+    <p class="lede">Розрахунок готовності до сертифікації і ваш профіль у реєстрі — в одному місці.</p>
+    <div id="app"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>© 2026 psy-cert.com.ua · Інформаційний ресурс. Не є офіційним джерелом правової інформації.</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  var SESSION_KEY = 'psycert_session';
+  var app = document.getElementById('app');
+  var pendingEmail = '';
+  var profile = null;
+
+  var CITIES = ['Київ', 'Харків', 'Одеса', 'Дніпро', 'Запоріжжя', 'Львів', 'Вінниця', 'Чернівці', 'Онлайн'];
+  var SPECS = [
+    'КПТ (когнітивно-поведінкова терапія)',
+    'Психодинамічна терапія',
+    'Гештальт-терапія',
+    'Тілесно-орієнтована терапія',
+    'EMDR',
+    'Сімейна системна терапія',
+    'Екзистенційна терапія',
+    'Інше'
+  ];
+  var STATUS_UA = {
+    pending: 'На модерації',
+    approved: 'Схвалено — скоро в реєстрі',
+    published: 'Опубліковано в реєстрі',
+    rejected: 'Відхилено'
+  };
+
+  function session() {
+    try { return JSON.parse(localStorage.getItem(SESSION_KEY)); } catch (e) { return null; }
+  }
+  function setSession(s) {
+    if (s) localStorage.setItem(SESSION_KEY, JSON.stringify(s));
+    else localStorage.removeItem(SESSION_KEY);
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function authHeaders(extra) {
+    var s = session();
+    var h = extra || {};
+    if (s && s.token) h['Authorization'] = 'Bearer ' + s.token;
+    return h;
+  }
+  function statusMsg(id, msg, ok) {
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = msg;
+    el.className = 'status-msg ' + (ok ? 'ok' : 'err');
+  }
+
+  /* ─── Вхід ─── */
+
+  function renderLogin(step) {
+    if (step === 'code') {
+      app.innerHTML =
+        '<div class="card">' +
+          '<h2>Введіть код з листа</h2>' +
+          '<p>Надіслали 6-значний код на <strong>' + esc(pendingEmail) + '</strong>. Код діє 10 хвилин.</p>' +
+          '<form class="row-form" id="code-form">' +
+            '<input type="text" id="login-code" inputmode="numeric" maxlength="6" placeholder="123456" aria-label="Код входу">' +
+            '<button class="primary" type="submit">Увійти</button>' +
+          '</form>' +
+          '<p class="status-msg" id="login-status"></p>' +
+        '</div>';
+      document.getElementById('code-form').addEventListener('submit', verifyCode);
+      document.getElementById('login-code').focus();
+      return;
+    }
+    app.innerHTML =
+      '<div class="card">' +
+        '<h2>Вхід у кабінет</h2>' +
+        '<p>Без пароля: надішлемо одноразовий код на ваш email. Якщо ви вже реєструвались у реєстрі психологів — використайте той самий email, і профіль підтягнеться автоматично.</p>' +
+        '<form class="row-form" id="login-form">' +
+          '<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">' +
+          '<input type="email" id="login-email" placeholder="ваш@email.com" autocomplete="email" aria-label="Email">' +
+          '<button class="primary" type="submit">Отримати код</button>' +
+        '</form>' +
+        '<p class="status-msg" id="login-status"></p>' +
+      '</div>';
+    document.getElementById('login-form').addEventListener('submit', requestCode);
+  }
+
+  async function requestCode(e) {
+    e.preventDefault();
+    var email = document.getElementById('login-email').value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      statusMsg('login-status', 'Введіть коректний email.', false);
+      return;
+    }
+    var btn = e.target.querySelector('button');
+    btn.disabled = true;
+    try {
+      var res = await fetch('/api/auth/request-code', {
+        method: 'POST',
+        body: JSON.stringify({ email: email, botcheck: '' }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        pendingEmail = email;
+        renderLogin('code');
+      } else if (data.error === 'rate_limited') {
+        statusMsg('login-status', 'Забагато запитів — зачекайте годину.', false);
+        btn.disabled = false;
+      } else if (data.error === 'email_unavailable' || data.error === 'email_send_failed') {
+        statusMsg('login-status', 'Відправка кодів тимчасово недоступна — спробуйте пізніше.', false);
+        btn.disabled = false;
+      } else {
+        throw new Error();
+      }
+    } catch (err) {
+      statusMsg('login-status', 'Не вдалося надіслати код. Спробуйте ще раз.', false);
+      btn.disabled = false;
+    }
+  }
+
+  async function verifyCode(e) {
+    e.preventDefault();
+    var code = document.getElementById('login-code').value.trim();
+    if (!/^\d{6}$/.test(code)) {
+      statusMsg('login-status', 'Код — 6 цифр.', false);
+      return;
+    }
+    var btn = e.target.querySelector('button');
+    btn.disabled = true;
+    try {
+      var res = await fetch('/api/auth/verify', {
+        method: 'POST',
+        body: JSON.stringify({ email: pendingEmail, code: code }),
+        headers: { 'Content-Type': 'application/json' }
+      });
+      var data = await res.json();
+      if (res.ok && data.success) {
+        setSession({ token: data.token, email: data.email });
+        boot();
+      } else {
+        statusMsg('login-status', 'Невірний або прострочений код.', false);
+        btn.disabled = false;
+      }
+    } catch (err) {
+      statusMsg('login-status', 'Помилка з\'єднання. Спробуйте ще раз.', false);
+      btn.disabled = false;
+    }
+  }
+
+  async function logout() {
+    var s = session();
+    setSession(null);
+    renderLogin();
+    if (s && s.token) {
+      fetch('/api/auth/logout', { method: 'POST', headers: { 'Authorization': 'Bearer ' + s.token } }).catch(function () {});
+    }
+  }
+
+  /* ─── Кабінет ─── */
+
+  function profileFormHtml(p) {
+    p = p || {};
+    var cityOpts = CITIES.map(function (c) {
+      return '<option' + (p.city === c ? ' selected' : '') + '>' + esc(c) + '</option>';
+    }).join('');
+    var specOpts = SPECS.map(function (sp) {
+      return '<option' + (p.specialization === sp ? ' selected' : '') + '>' + esc(sp) + '</option>';
+    }).join('');
+    return '<form id="profile-form">' +
+      '<div class="field"><label for="pf-name">Ім’я та прізвище *</label>' +
+        '<input type="text" id="pf-name" maxlength="100" required value="' + esc(p.name || '') + '"></div>' +
+      '<div class="field"><label for="pf-city">Місто</label>' +
+        '<select id="pf-city"><option value="">— оберіть —</option>' + cityOpts + '</select></div>' +
+      '<div class="field"><label for="pf-spec">Основний напрям</label>' +
+        '<select id="pf-spec"><option value="">— оберіть —</option>' + specOpts + '</select></div>' +
+      '<div class="field"><label for="pf-exp">Років досвіду</label>' +
+        '<input type="number" id="pf-exp" min="0" max="60" value="' + (p.experience_years != null ? esc(p.experience_years) : '') + '"></div>' +
+      '<div class="field-check"><input type="checkbox" id="pf-cert"' + (p.has_certificate ? ' checked' : '') + '><span>Маю сертифікат за своїм методом</span></div>' +
+      '<div class="field"><label for="pf-bio">Про себе (до 1000 символів)</label>' +
+        '<textarea id="pf-bio" maxlength="1000">' + esc(p.bio || '') + '</textarea></div>' +
+      '<div class="field"><label for="pf-site">Сайт або сторінка</label>' +
+        '<input type="url" id="pf-site" placeholder="https://…" value="' + esc(p.website || '') + '"></div>' +
+      '<button class="primary" type="submit">' + (p.name ? 'Зберегти зміни' : 'Подати заявку в реєстр') + '</button>' +
+      '<p class="status-msg" id="profile-status"></p>' +
+    '</form>';
+  }
+
+  function renderCabinet(calcInfo) {
+    var s = session();
+    var statusHtml = '';
+    if (profile) {
+      var st = profile.status || 'pending';
+      statusHtml = '<span class="badge ' + esc(st) + '">' + esc(STATUS_UA[st] || st) + '</span>';
+      if (st === 'published' && profile.public_id) {
+        statusHtml += '<p>Ваш публічний профіль: <a href="/p/' + esc(profile.public_id) + '/">psy-cert.com.ua/p/' + esc(profile.public_id).slice(0, 8) + '…</a></p>';
+      }
+      if (st === 'rejected') {
+        statusHtml += '<p>Заявку відхилено. Ви можете оновити дані та подати знову — після збереження профіль повернеться на модерацію.</p>';
+      }
+    }
+
+    app.innerHTML =
+      '<div class="who-bar">' +
+        '<span class="who">' + esc(s.email) + '</span>' +
+        '<button class="linklike" id="btn-logout">Вийти</button>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Розрахунок готовності до сертифікації</h2>' +
+        '<div class="calc-line">' +
+          '<a href="/calculator/">Відкрити калькулятор →</a>' +
+          '<span class="muted" id="calc-meta">' + esc(calcInfo || '') + '</span>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Профіль у реєстрі психологів</h2>' +
+        statusHtml +
+        (profile
+          ? '<p>Зміни в профілі проходять повторну модерацію перед публікацією.</p>'
+          : '<p>Заповніть профіль — після верифікації він з’явиться в <a href="/registry/">реєстрі психологів</a>.</p>') +
+        profileFormHtml(profile) +
+      '</div>';
+
+    document.getElementById('btn-logout').addEventListener('click', logout);
+    document.getElementById('profile-form').addEventListener('submit', saveProfile);
+  }
+
+  async function saveProfile(e) {
+    e.preventDefault();
+    var name = document.getElementById('pf-name').value.trim();
+    if (!name) { statusMsg('profile-status', 'Вкажіть ім’я.', false); return; }
+    var btn = e.target.querySelector('button');
+    btn.disabled = true;
+    try {
+      var res = await fetch('/api/me/profile', {
+        method: 'POST',
+        body: JSON.stringify({
+          name: name,
+          city: document.getElementById('pf-city').value,
+          specialization: document.getElementById('pf-spec').value,
+          experience_years: document.getElementById('pf-exp').value,
+          has_certificate: document.getElementById('pf-cert').checked,
+          bio: document.getElementById('pf-bio').value,
+          website: document.getElementById('pf-site').value
+        }),
+        headers: authHeaders({ 'Content-Type': 'application/json' })
+      });
+      if (res.status === 401) { setSession(null); renderLogin(); return; }
+      var data = await res.json();
+      if (res.ok && data.success) {
+        profile = data.profile;
+        renderCabinet(document.getElementById('calc-meta').textContent);
+        statusMsg('profile-status', 'Збережено. Профіль на модерації — повідомимо, коли опублікуємо.', true);
+      } else {
+        statusMsg('profile-status', 'Не вдалося зберегти. Перевірте поля і спробуйте ще раз.', false);
+        btn.disabled = false;
+      }
+    } catch (err) {
+      statusMsg('profile-status', 'Помилка з\'єднання. Спробуйте ще раз.', false);
+      btn.disabled = false;
+    }
+  }
+
+  async function boot() {
+    var s = session();
+    if (!s || !s.token) { renderLogin(); return; }
+
+    app.innerHTML = '<div class="card"><p>Завантаження…</p></div>';
+    var calcInfo = '';
+    try {
+      var results = await Promise.all([
+        fetch('/api/me/profile', { headers: authHeaders() }),
+        fetch('/api/calc', { headers: authHeaders() })
+      ]);
+      if (results[0].status === 401 || results[1].status === 401) {
+        setSession(null); renderLogin(); return;
+      }
+      var pData = await results[0].json();
+      var cData = await results[1].json();
+      profile = pData.profile || null;
+      if (cData.success && cData.updated_at) {
+        calcInfo = 'останнє збереження: ' + cData.updated_at.slice(0, 16).replace('T', ' ');
+      } else {
+        calcInfo = 'розрахунок ще не збережено';
+      }
+    } catch (err) {
+      calcInfo = '';
+    }
+    renderCabinet(calcInfo);
+  }
+
+  boot();
+})();
+</script>
+
+</body>
+</html>

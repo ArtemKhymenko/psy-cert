@@ -345,6 +345,14 @@
     padding: 4px;
   }
   .cabinet-logout:hover { color: var(--ink); }
+  .cabinet-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 8px;
+  }
+  .cabinet-link:hover { text-decoration: underline; text-underline-offset: 2px; }
 
   /* State cert block */
   .state-block {
@@ -421,6 +429,7 @@
     <a class="brand" href="/"><span class="brand-dot"></span>psy-cert.com.ua</a>
     <nav class="header-nav">
       <a href="/programs/">Курси</a>
+      <a href="/cabinet/">Кабінет</a>
       <a href="/articles/">Матеріали</a>
     </nav>
   </div>
@@ -743,7 +752,8 @@
       cabinetEl.innerHTML =
         '<div class="cabinet-logged">' +
           '<div><span class="who">' + esc(s.email) + '</span> <span class="sync" id="sync-note"></span></div>' +
-          '<button class="cabinet-logout" id="cabinet-logout">Вийти</button>' +
+          '<div><a class="cabinet-link" href="/cabinet/">Мій кабінет →</a> ' +
+          '<button class="cabinet-logout" id="cabinet-logout">Вийти</button></div>' +
         '</div>';
       document.getElementById('cabinet-logout').addEventListener('click', logout);
       return;

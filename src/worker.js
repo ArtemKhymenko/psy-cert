@@ -467,6 +467,69 @@ async function handleCalc(request, env) {
   return json({ success: false, error: 'method_not_allowed' }, 405, cors);
 }
 
+// GET/POST /api/me/profile — профіль психолога в реєстрі, прив'язаний до сесії
+async function handleMyProfile(request, env) {
+  const origin = request.headers.get('Origin') || '';
+  const cors = corsHeadersGet(origin);
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors });
+
+  const email = await sessionEmail(request, env);
+  if (!email) return json({ success: false, error: 'unauthorized' }, 401, cors);
+
+  if (request.method === 'GET') {
+    const { results } = await env.DB.prepare(
+      `SELECT name, city, specialization, experience_years, has_certificate, bio, website, status, public_id, created_at
+       FROM psychologists WHERE email = ?`
+    ).bind(email).all();
+    return json({ success: true, profile: results[0] || null }, 200, cors);
+  }
+
+  if (request.method !== 'POST') return json({ success: false, error: 'method_not_allowed' }, 405, cors);
+
+  const body = await readJsonBody(request);
+  const name = (body.name || '').trim();
+  const city = (body.city || '').trim() || null;
+  const specialization = (body.specialization || '').trim() || null;
+  let bio = (body.bio || '').trim() || null;
+  let website = (body.website || '').trim() || null;
+
+  if (!name || name.length > 100) return json({ success: false, error: 'invalid_name' }, 422, cors);
+  if (bio && bio.length > 1000) bio = bio.slice(0, 1000);
+  if (website) {
+    try { new URL(website); } catch { website = null; }
+  }
+  const expYears = Number.parseInt(body.experience_years, 10);
+  const experienceYearsVal = Number.isFinite(expYears) ? expYears : null;
+  const hasCertificateVal = body.has_certificate === true || body.has_certificate === 1 || body.has_certificate === '1' ? 1 : 0;
+
+  const { results } = await env.DB.prepare(
+    `SELECT id, public_id FROM psychologists WHERE email = ?`
+  ).bind(email).all();
+
+  if (results[0]) {
+    // Редагування повертає профіль на модерацію
+    await env.DB.prepare(
+      `UPDATE psychologists SET name = ?, city = ?, specialization = ?, experience_years = ?,
+         has_certificate = ?, bio = ?, website = ?, status = 'pending'
+       WHERE email = ?`
+    ).bind(name, city, specialization, experienceYearsVal, hasCertificateVal, bio, website, email).run();
+  } else {
+    const public_id = crypto.randomUUID();
+    const ip_hash = await hashIp(request.headers.get('CF-Connecting-IP'));
+    await env.DB.prepare(
+      `INSERT INTO psychologists
+         (name, email, city, specialization, experience_years, has_certificate, bio, website, ip_hash, source, public_id, status)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'cabinet', ?, 'pending')`
+    ).bind(name, email, city, specialization, experienceYearsVal, hasCertificateVal, bio, website, ip_hash, public_id).run();
+  }
+
+  const saved = await env.DB.prepare(
+    `SELECT name, city, specialization, experience_years, has_certificate, bio, website, status, public_id, created_at
+     FROM psychologists WHERE email = ?`
+  ).bind(email).all();
+  return json({ success: true, profile: saved.results[0] }, 200, cors);
+}
+
 // POST /api/auth/logout — завершити сесію
 async function handleAuthLogout(request, env) {
   const origin = request.headers.get('Origin') || '';
@@ -492,6 +555,7 @@ export default {
     if (url.pathname === '/api/auth/verify') return handleAuthVerify(request, env);
     if (url.pathname === '/api/auth/logout') return handleAuthLogout(request, env);
     if (url.pathname === '/api/calc') return handleCalc(request, env);
+    if (url.pathname === '/api/me/profile') return handleMyProfile(request, env);
     if (url.pathname === '/api/admin/list') return handleAdminList(request, env);
     if (url.pathname === '/api/admin/status') return handleAdminStatus(request, env);
 
